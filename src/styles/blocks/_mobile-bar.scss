@@ -1,13 +1,6 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Sticky mobile action bar
-//  The primary conversion action ("Request assistance") lives in
-//  the left column, which on mobile scrolls far off-screen. A
-//  thumb-zone bar keeps it reachable at any scroll depth.
-// ============================================================
-
 .mobile-bar {
   position: fixed;
   inset: auto 0 0 0;
@@ -16,15 +9,12 @@
   align-items: center;
   gap: var(--s-3);
   padding: var(--s-3) var(--gutter);
-  // Clears the iOS home indicator.
   padding-bottom: max(var(--s-3), env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px) saturate(1.6);
   -webkit-backdrop-filter: blur(12px) saturate(1.6);
   border-top: 1px solid var(--border-subtle);
 
-  // Slides away while scrolling down, returns on scroll up, so it
-  // never competes with content the user is actively reading.
   transform: translateY(0);
   transition: transform var(--dur-mid) var(--ease-out);
   &.is-hidden { transform: translateY(110%); }
@@ -57,7 +47,5 @@
 .mobile-bar .btn {
   flex: 0 0 auto;
 
-  // At 360px the full label plus the info block will not both fit;
-  // the button keeps priority and the label shortens.
   @include down(sm) { padding-inline: var(--s-4); }
 }

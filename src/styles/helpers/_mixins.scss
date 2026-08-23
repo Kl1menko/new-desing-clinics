@@ -1,10 +1,5 @@
-// ============================================================
-//  Mixins
-// ============================================================
-
 @use "media" as *;
 
-// Visible only to assistive tech.
 @mixin visually-hidden {
   position: absolute;
   width: 1px;
@@ -18,7 +13,6 @@
   border: 0;
 }
 
-// Consistent, always-visible keyboard focus (WCAG 2.4.7 / 2.4.11).
 @mixin focus-ring($offset: 2px) {
   &:focus-visible {
     outline: 2px solid var(--focus-ring);
@@ -27,8 +21,6 @@
   }
 }
 
-// Guarantees a WCAG 2.5.5-friendly hit area without forcing the
-// visual box to grow — the pseudo-element does the work.
 @mixin tap-target($size: 44px) {
   position: relative;
   &::after {
@@ -63,9 +55,6 @@
   }
 }
 
-// Scroll container that keeps a two-dimensional table intact on
-// small screens. Data tables are the documented exception to the
-// "no horizontal scroll" rule.
 @mixin scroll-x {
   overflow-x: auto;
   overscroll-behavior-x: contain;

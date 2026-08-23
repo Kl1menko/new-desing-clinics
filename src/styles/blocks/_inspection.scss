@@ -1,10 +1,6 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Inspection reports — accordion + indicator tables
-// ============================================================
-
 .inspections {
   display: grid;
   gap: var(--s-3);
@@ -19,7 +15,6 @@
   margin-bottom: var(--s-1);
 }
 
-// ---- Accordion item -------------------------------------------
 .inspection {
   border: 1px solid var(--border-subtle);
   border-radius: var(--r-md);
@@ -36,8 +31,6 @@
   }
 }
 
-// The whole header row is the toggle — a large, obvious target.
-// It is a real <button> so Enter/Space and screen readers work.
 .inspection__toggle {
   width: 100%;
   display: grid;
@@ -80,8 +73,6 @@
   margin-bottom: 2px;
 }
 
-// Collapsed state must say enough to decide whether to expand:
-// type, date, reference, and the headline score.
 .inspection__meta {
   display: flex;
   flex-wrap: wrap;
@@ -90,10 +81,6 @@
   font-size: var(--fs-sm);
   color: var(--text-muted);
 
-  // Below sm the reference code is the least useful of the three
-  // facts and is what forces a third line — drop it there.
-  // На вузькому екрані ховаємо код звіту разом із роздільником,
-  // що стоїть перед ним — інакше лишається висяча крапка.
   @include down(md) {
     code { display: none; }
     .dot:last-of-type { display: none; }
@@ -121,7 +108,6 @@
   flex: 0 0 auto;
 }
 
-// Score summary shown on the collapsed row.
 .inspection__score {
   display: none;
   text-align: right;
@@ -139,8 +125,6 @@
   small { font-size: var(--fs-xs); color: var(--text-muted); }
 }
 
-// Chevron replaces the original "+" — rotation communicates
-// open/closed more clearly than a glyph swap.
 .inspection__chevron {
   display: grid;
   place-items: center;
@@ -164,18 +148,11 @@
   }
 }
 
-// ---- Panel -----------------------------------------------------
-// grid-template-rows 0fr -> 1fr animates height without JS
-// measuring, and collapses to display:none for a11y when closed.
 .inspection__panel {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows var(--dur-slow) var(--ease-out);
 
-  // Обгортка не просто обрізає вміст, а виключає його з розкладки.
-  // Самого overflow: hidden замало — обрізана таблиця все одно
-  // потрапляє в scrollHeight документа й лишає порожню смугу
-  // під футером.
   > div {
     overflow: hidden;
     content-visibility: hidden;
@@ -195,16 +172,12 @@
   @include up(md) { padding: 0 var(--s-5) var(--s-5); }
 }
 
-// ---- Indicator groups -------------------------------------------
 .indicator-group {
   margin-top: var(--s-2);
 
   &:first-child { margin-top: var(--s-3); }
 }
 
-// Другий рівень згортання. Розгорнутий звіт показує 5 коротких
-// рядків-груп замість 30 рядків таблиці — користувач сам обирає,
-// у яку тему заглибитись.
 .indicator-group__head {
   width: 100%;
   display: flex;
@@ -250,10 +223,6 @@
   [aria-expanded="true"] & { transform: rotate(180deg); }
 }
 
-// Короткий підсумок групи у згорнутому стані.
-// Та сама система, що й .badge: без заливки, статус несе колір
-// тексту й крапка. Інакше в одному відкритому звіті світилось
-// п'ять жовтих плям поспіль.
 .group-chip {
   display: inline-flex;
   align-items: center;
@@ -307,8 +276,6 @@
   svg { width: 15px; height: 15px; color: var(--c-brand-400); }
 }
 
-// Header of an opened panel: title on one line, controls on the
-// next once space runs out, rather than three cramped columns.
 .panel-head {
   margin-top: var(--s-4);
   padding-top: var(--s-4);
@@ -321,7 +288,6 @@
   flex-wrap: wrap;
 }
 
-// ---- Щільність шапок на мобільному --------------------------------
 @include down(md) {
   .inspection__toggle { padding: var(--s-3); }
 
@@ -343,8 +309,6 @@
   .indicator-group { margin-top: var(--s-2); }
 }
 
-// Шапка відкритої панелі: на вузькому екрані підпис і контрол
-// стають одне під одним, інакше підпис ламається на два рядки.
 @include down(sm) {
   .panel-head {
     flex-direction: column;

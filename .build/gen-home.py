@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Генерує home.html із home-data.json + shell-home.html."""
 import json, html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -46,9 +44,6 @@ def render_countries():
                      f'alt="" width="480" height="640" loading="lazy" decoding="async">')
         else:
             media = PLACEHOLDER
-        # Локально існує лише сторінка закладу — на неї й ведемо
-        # з Belgium, решта поки на серверний шлях.
-        # Локально існують дві сторінки — на них і ведемо з демо-карток.
         local = {"belgium": "index.html", "japan": "country.html"}
         href = local.get(c["slug"], f'/care-services/{esc(c["slug"])}')
         out.append(f'''          <a class="country-card" href="{href}">
@@ -64,7 +59,6 @@ def render_countries():
     return "\n".join(out)
 
 def render_sources():
-    """Вузли на двох кільцях: по три фіксовані позиції на кожному."""
     def chips(ring):
         out = []
         for src in data["sources"][ring]:
@@ -84,7 +78,6 @@ def render_sources():
         f'            {chips("inner")}\n'
         '          </span>'
     )
-
 
 shell = (ROOT / ".build/shell-home.html").read_text()
 out = (shell

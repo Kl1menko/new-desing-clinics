@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Генерує country.html із country-data.json + shell-country.html."""
 import json, html, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -11,7 +9,6 @@ def icon(paths, w=15):
     return ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" '
             f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{paths}</svg>')
 
-# Verified badge — спільний компонент із картки клініки.
 VERIFIED = (
     '<span class="verified verified--sm" role="img" aria-label="Accreditation verified">'
     '<svg class="verified__seal" viewBox="0 0 24 24" aria-hidden="true">'
@@ -60,12 +57,9 @@ def render_clinics():
     out = []
     for c in data["clinics"]:
         slug = c["name"].lower().replace(",", "").replace(" ", "-")
-        # AZ Oudenaarde має локальну сторінку — ведемо туди для демо.
         href = "index.html"
 
         if c["accredited"]:
-            # Та сама печатка, що на сторінці клініки — знак
-            # перевірки має бути один на весь сайт.
             status = (f'<span class="clinic-card__status">{VERIFIED}Accredited</span>')
             since = (f'''<span class="clinic-card__row">{icon(CAL)}
                 Accredited since {c["since"]}</span>''' if c["since"] else "")

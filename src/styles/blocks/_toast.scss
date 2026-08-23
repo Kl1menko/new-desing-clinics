@@ -1,10 +1,6 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Toast (copy confirmation)
-// ============================================================
-
 .toast {
   position: fixed;
   left: 50%;

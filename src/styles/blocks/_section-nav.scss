@@ -1,18 +1,12 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  In-page section nav (desktop sidebar)
-// ============================================================
-
 .section-nav {
   @include card(var(--s-3));
   display: none;
 
   @include up(lg) {
     display: block;
-    // Навігація низька, тож повністю поміщається в екран і може
-    // безпечно лишатись липкою на всю довжину сторінки.
     position: sticky;
     top: calc(var(--header-h) + var(--s-4));
     max-height: calc(100dvh - var(--header-h) - var(--s-8));
@@ -46,7 +40,6 @@
 
     &:hover { background: var(--c-n-50); color: var(--text-primary); }
 
-    // Set by the scroll-spy observer.
     &.is-active {
       background: var(--c-brand-50);
       color: var(--c-brand-700);

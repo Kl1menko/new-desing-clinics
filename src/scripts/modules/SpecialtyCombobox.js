@@ -1,14 +1,3 @@
-/**
- * Поле вибору спеціальності з пошуком.
- *
- * У довіднику ~300 спеціальностей — від «Abdominal surgery» до
- * «Women's internal medicine». Звичайний <select> на такий список
- * непридатний, особливо на мобільному, тому поле фільтрує
- * варіанти по введеному тексту.
- *
- * Патерн ARIA combobox: керується з клавіатури стрілками,
- * Enter обирає, Escape закриває.
- */
 class SpecialtyCombobox {
   selectors = {
     root: '[data-js-combobox]',
@@ -44,7 +33,6 @@ class SpecialtyCombobox {
     this.bindEvents()
   }
 
-  /** Список приходить із розмітки — сторінка лишається джерелом правди. */
   readOptions() {
     try {
       return JSON.parse(this.listElement.dataset.jsComboboxOptions || '[]')
@@ -65,8 +53,6 @@ class SpecialtyCombobox {
       return this.options.slice(0, this.maxVisible)
     }
 
-    // Збіги з початку назви — вище: за «car» спершу «Cardiology»,
-    // а не «Vascular surgery».
     const starts = []
     const contains = []
 
@@ -92,8 +78,6 @@ class SpecialtyCombobox {
     const query = this.inputElement.value.trim()
     const total = this.totalMatches
 
-    // Підказка вгорі списку: скільки всього збігів і що показано
-    // не все. Без неї обрізаний список читається як повний.
     const hint = query
       ? `${total} ${total === 1 ? 'match' : 'matches'}`
       : `${this.options.length} specialties — start typing to narrow`
@@ -116,7 +100,6 @@ class SpecialtyCombobox {
       `<p class="combobox__hint">${hint}</p>${items}${more}`
   }
 
-  /** Підсвічує введений фрагмент у назві. */
   highlight(option, query) {
     if (!query) {
       return option
@@ -157,7 +140,6 @@ class SpecialtyCombobox {
       return
     }
 
-    // Циклічний обхід: із останнього вниз потрапляємо на перший.
     const count = this.matches.length
     this.activeIndex = (index + count) % count
 
@@ -214,8 +196,6 @@ class SpecialtyCombobox {
     const optionElement = event.target.closest('[role="option"]')
 
     if (optionElement) {
-      // textContent, а не innerHTML: у назві може бути <mark>
-      // від підсвічування збігу.
       this.select(optionElement.textContent)
       this.inputElement.focus()
     }

@@ -1,10 +1,6 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Breadcrumbs
-// ============================================================
-
 .breadcrumbs {
   margin-bottom: var(--s-5);
   font-size: var(--fs-sm);
@@ -13,8 +9,6 @@
     display: flex;
     align-items: center;
     gap: var(--s-1);
-    // On narrow screens the trail scrolls instead of wrapping into
-    // a ragged three-line block.
     @include scroll-x;
     white-space: nowrap;
     padding-bottom: var(--s-1);

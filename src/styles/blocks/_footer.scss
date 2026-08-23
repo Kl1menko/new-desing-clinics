@@ -1,15 +1,9 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Site footer
-// ============================================================
-
 .footer {
   background: var(--c-n-0);
   border-top: 1px solid var(--border-subtle);
-  // Місце під липку панель додаємо padding'ом усередині футера:
-  // margin залишав під ним смугу голого тла.
   padding-block: var(--s-10) calc(var(--s-10) + var(--mobile-bar));
 
   @include up(lg) { padding-block: var(--s-12); }
@@ -57,10 +51,6 @@
 .footer__col ul { display: grid; gap: var(--s-2); }
 
 .footer__col a {
-  // inline-flex + min-height тримали відступ лише поки посилання
-  // в один рядок; при переносі («Medical institutions worldwide»)
-  // сусідні пункти злипались. Вертикальний padding працює в
-  // обох випадках і зберігає зручну зону натискання.
   display: block;
   padding-block: var(--s-1);
   font-size: var(--fs-base);

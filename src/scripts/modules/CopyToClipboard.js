@@ -1,9 +1,3 @@
-/**
- * Копіювання реєстрових номерів (HCO / KBO / RIZIV).
- *
- * Ці номери переносять в інші системи руками — прибрати
- * ручний набір означає прибрати джерело помилок.
- */
 class CopyToClipboard {
   selectors = {
     button: '[data-js-copy]',
@@ -37,7 +31,6 @@ class CopyToClipboard {
       await navigator.clipboard.writeText(text)
       return true
     } catch {
-      // Clipboard API вимагає secure context — тихий фолбек.
       return this.copyTextFallback(text)
     }
   }

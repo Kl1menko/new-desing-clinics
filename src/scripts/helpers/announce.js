@@ -1,6 +1,3 @@
-/**
- * Повідомляє скрінрідеру про зміну стану, яку видно лише візуально.
- */
 let liveRegionElement = null
 
 export default function announce(message) {

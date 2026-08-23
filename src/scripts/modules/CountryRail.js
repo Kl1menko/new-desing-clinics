@@ -1,10 +1,3 @@
-/**
- * Горизонтальна стрічка країн.
- *
- * Гортання пальцем працює нативно; кнопки потрібні лише там, де
- * вказівник, тому вмикаються з lg. Стан кнопок відображає, чи є
- * куди їхати — «мертві» кнопки на краях збивають з пантелику.
- */
 class CountryRail {
   selectors = {
     root: '[data-js-rail]',
@@ -30,13 +23,9 @@ class CountryRail {
 
     this.bindEvents()
 
-    // Перший вимір — після розкладки: на момент конструктора
-    // картки ще можуть не мати остаточної ширини, і кнопка
-    // «назад» лишалась активною на самому початку стрічки.
     requestAnimationFrame(this.updateButtons)
   }
 
-  /** Крок прокрутки — ширина картки з проміжком. */
   get step() {
     const card = this.trackElement.firstElementChild
 
@@ -59,13 +48,8 @@ class CountryRail {
   updateButtons = () => {
     const { scrollLeft, scrollWidth, clientWidth } = this.trackElement
 
-    // Стрічка має лівий padding для вирівнювання по контейнеру, і
-    // браузер стартує вже прокрученим на цю величину — інакше
-    // кнопка «назад» лишалась активною на самому початку.
     const startOffset = parseFloat(getComputedStyle(this.trackElement).paddingLeft) || 0
 
-    // Допуск 2px: субпіксельні розміри інакше лишають кнопку
-    // активною в самому кінці стрічки.
     const atStart = scrollLeft <= startOffset + 2
     const atEnd = scrollLeft + clientWidth >= scrollWidth - 2
 

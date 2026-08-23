@@ -1,10 +1,6 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Accreditation cards
-// ============================================================
-
 .accred {
   @include card(0);
   box-shadow: var(--e-1);
@@ -51,9 +47,6 @@
   margin-bottom: var(--s-3);
 }
 
-// ---- Field list ----------------------------------------------
-// A description list, not a table: these are attributes of one
-// entity, so <dl> is the honest semantic and it reflows cleanly.
 .fields {
   display: grid;
   gap: 0;
@@ -79,12 +72,10 @@
     font-weight: var(--fw-semibold);
     text-align: right;
     font-variant-numeric: tabular-nums;
-    // Long registry numbers may break rather than overflow.
     overflow-wrap: anywhere;
   }
 }
 
-// Copy-to-clipboard affordance on registry identifiers.
 .copyable {
   display: inline-flex;
   align-items: center;

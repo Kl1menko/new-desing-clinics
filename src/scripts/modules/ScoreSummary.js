@@ -1,11 +1,5 @@
 import { INDICATOR_STATES, getIndicatorState } from '../helpers/indicatorState.js'
 
-/**
- * Рахує статуси індикаторів і зведення по сторінці.
- *
- * Джерело правди — розмітка: підсумок фізично не може розійтися
- * з таблицею, бо рахується з тих самих значень.
- */
 class ScoreSummary {
   selectors = {
     score: '[data-js-score]',
@@ -26,7 +20,6 @@ class ScoreSummary {
     this.renderSummary()
   }
 
-  /** Проставляє класи стану на клітинки й рядки, рахує підсумок. */
   applyStates() {
     const counts = { pass: 0, warn: 0, fail: 0, total: 0 }
 
@@ -41,7 +34,6 @@ class ScoreSummary {
       const state = getIndicatorState(ratio)
 
       scoreElement.classList.add(`score--${state}`)
-      // Клас на рядку потрібен для лівої мітки й фільтра.
       scoreElement.closest('tr')?.classList.add(`indicators__row--${state}`)
 
       const barElement = scoreElement.querySelector(this.selectors.bar)

@@ -1,27 +1,16 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Verified badge
-//
-//  Зубчаста «печатка» з галочкою — впізнаваний знак підтвердження.
-//  Власна реалізація на SVG + CSS замість React-компонента з
-//  motion: сторінка на vanilla JS, і тягнути ~30KB бібліотеки
-//  заради одного значка не варто.
-// ============================================================
-
 .verified {
   position: relative;
   display: inline-grid;
   place-items: center;
   flex: 0 0 auto;
-  // Розмір задається ззовні: --verified-size або inline-стилем.
   width: var(--verified-size, 20px);
   height: var(--verified-size, 20px);
   color: var(--c-verified, #1d9bf0);
   vertical-align: -0.15em;
 
-  // Зубчаста основа.
   &__seal {
     position: absolute;
     inset: 0;
@@ -30,9 +19,6 @@
     fill: currentColor;
   }
 
-  // Галочка поверх основи. Позиціонуємо абсолютно й центруємо
-  // трансформом: у потоці grid вона сідала на пів пікселя нижче
-  // через оптичний центр зубчастої форми.
   &__check {
     position: absolute;
     top: 50%;
@@ -49,22 +35,16 @@
   }
 }
 
-// ---- Варіанти кольору -------------------------------------------
 .verified--brand   { color: var(--c-brand-500); }
 .verified--green   { color: var(--c-pass-fg); }
 .verified--gold    { color: #c08a2e; }
 .verified--neutral { color: var(--c-n-400); }
 
-// ---- Розміри ------------------------------------------------------
 .verified--sm { --verified-size: 16px; }
 .verified--md { --verified-size: 20px; }
 .verified--lg { --verified-size: 26px; }
 
-// ---- Shimmer -------------------------------------------------------
-// Блік раз на 4с проходить по печатці. Керується маскою, тому
-// не додає жодного DOM-вузла і не чіпає розкладку.
 .verified--shimmer .verified__seal {
-  // Дві накладені заливки: базовий колір і світлий блік, що їде.
   mask-image: linear-gradient(
     115deg,
     #000 40%,
@@ -80,7 +60,6 @@
   55%, 100% { mask-position: -50% 0; }
 }
 
-// Поява при першому показі: печатка «сідає» на місце.
 .verified--pop {
   animation: verified-pop var(--dur-slow) var(--ease-out) both;
 }
@@ -91,26 +70,20 @@
   100% { transform: scale(1); opacity: 1; }
 }
 
-// Рух тут суто декоративний — за системним налаштуванням завмирає.
 @media (prefers-reduced-motion: reduce) {
   .verified--shimmer .verified__seal,
   .verified--pop { animation: none; }
 }
 
-// ---- Накладка на логотип акредитора ---------------------------------
-// Замінює попередній .verified-mark: та сама позиція, але спільна
-// форма з рештою значків на сторінці.
 .verified--overlay {
   position: absolute;
   right: -5px;
   bottom: -5px;
-  // Обведення кольором картки відділяє печатку від логотипа.
   filter: drop-shadow(0 0 0 var(--surface-card))
           drop-shadow(0 0 1.5px var(--surface-card))
           drop-shadow(0 0 1.5px var(--surface-card));
 }
 
-// ---- Значок поруч із текстом -----------------------------------------
 .verified-label {
   display: inline-flex;
   align-items: center;

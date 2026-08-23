@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""Generates index.html from data.json + the page shell.
-
-The inspection tables are ~65 rows of near-identical markup; generating
-them keeps every row structurally identical and the source reviewable.
-"""
 import json, html, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -56,8 +50,6 @@ def render_groups(rep):
         met = sum(1 for _, x in rows if state(*(int(v) for v in x.split("/")))[0] == "pass")
         gid = f"g-{rep['id']}-{gi}"
         issues = tot - met
-        # Одна плашка замість плашки + лічильника: «10/13 met»
-        # уже містить і скільки виконано, і скільки ні.
         chip = (f'<span class="group-chip group-chip--warn">{met}/{tot} met</span>'
                 if issues else '<span class="group-chip group-chip--pass">All {tot} met</span>')
         out.append(f'''        <section class="indicator-group" data-js-indicator-group>

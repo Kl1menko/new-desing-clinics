@@ -1,6 +1,3 @@
-/**
- * Шапка сайту: тінь при скролі, бургер-меню, випадайка «More».
- */
 class Header {
   selectors = {
     root: '[data-js-header]',
@@ -18,7 +15,6 @@ class Header {
     isLock: 'is-lock',
   }
 
-  // Скільки пікселів треба проскролити, щоб шапка «відірвалась».
   scrollOffset = 4
 
   constructor() {
@@ -48,15 +44,8 @@ class Header {
 
     this.burgerElement.setAttribute('aria-expanded', String(isOpen))
     this.drawerElement.classList.toggle(this.stateClasses.isOpen, isOpen)
-    // Сторінка під панеллю не має скролитись.
     document.documentElement.classList.toggle(this.stateClasses.isLock, isOpen)
 
-    // Фокус їде всередину панелі, а на закритті повертається на
-    // бургер — інакше клавіатурний користувач губить місце.
-    //
-    // visibility анімується разом із панеллю, тож поки перехід
-    // не завершився, елемент фокус не приймає і виклик тихо
-    // нічого не робить. Чекаємо кінця переходу.
     if (isOpen) {
       this.drawerElement.addEventListener(
         'transitionend',
@@ -84,8 +73,6 @@ class Header {
   }
 
   onDrawerClick = (event) => {
-    // Клік по логотипу чи пункту меню веде на іншу сторінку —
-    // повертати фокус на бургер немає сенсу.
     if (event.target.closest('a')) {
       this.toggleMenu(false, { shouldRestoreFocus: false })
     }
@@ -115,10 +102,6 @@ class Header {
     this.bindDropdowns()
   }
 
-  /**
-   * Випадайка «More». Закривається кліком назовні, Escape
-   * і виходом фокуса — щоб не лишалась відкритою випадково.
-   */
   bindDropdowns() {
     document.querySelectorAll(this.selectors.dropdown).forEach((dropdownElement) => {
       const buttonElement = dropdownElement.querySelector(this.selectors.dropdownButton)

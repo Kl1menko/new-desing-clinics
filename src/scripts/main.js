@@ -10,8 +10,6 @@ import CountryRail from './modules/CountryRail.js'
 import CatalogFilters from './modules/CatalogFilters.js'
 
 function initApp() {
-  // ScoreSummary — першим: акордеон і фільтр спираються на класи
-  // стану, які він проставляє з розмітки.
   new ScoreSummary()
   new Header()
   new ScrollSpy()
@@ -20,8 +18,6 @@ function initApp() {
   new CopyToClipboard()
   new MobileBar()
 
-  // Модулі головної. Кожен сам виходить, якщо його елементів
-  // немає в розмітці, тож перевірка сторінки тут не потрібна.
   new SpecialtyCombobox()
   new CountryRail()
   new CatalogFilters()

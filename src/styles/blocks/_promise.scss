@@ -1,10 +1,6 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Секції головної: обіцянки, місія, підсумковий CTA
-// ============================================================
-
 .section {
   padding-block: var(--s-12);
 
@@ -29,19 +25,12 @@
   color: var(--text-secondary);
 }
 
-// ---- Що саме перевіряємо -------------------------------------------
 .promises {
   display: grid;
   gap: var(--s-4);
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   counter-reset: promise;
 
-  // Три спільні ряди: іконка / заголовок / опис. Картки
-  // наслідують їх через subgrid, тому всі три рівні вирівняні
-  // між собою незалежно від довжини тексту.
-  // Тільки коли картки стоять у ряд: у вертикальному стеку
-  // вирівнювати нічого, а спільні ряди лишали б порожні
-  // прогалини під короткими заголовками.
   @include up(md) {
     @supports (grid-template-rows: subgrid) {
       grid-template-rows: auto auto 1fr;
@@ -69,8 +58,6 @@
               transform var(--dur-mid) var(--ease-out),
               box-shadow var(--dur-mid) var(--ease-out);
 
-  // Кольорова смужка вгорі проявляється на наведенні — картка
-  // відгукується, не змінюючи розкладку.
   &::before {
     content: "";
     position: absolute;
@@ -82,8 +69,6 @@
     transition: transform var(--dur-mid) var(--ease-out);
   }
 
-  // Великий напівпрозорий номер у куті: дає ряду ритм і порядок
-  // читання, якого чотири однакові картки не мали.
   &::after {
     content: counter(promise, decimal-leading-zero);
     position: absolute;
@@ -113,8 +98,6 @@
     width: 44px;
     height: 44px;
     border-radius: var(--r-md);
-    // Заливка градієнтом замість пласкої: іконка читається як
-    // предмет, а не як ще один прямокутник на картці.
     background: linear-gradient(135deg, var(--c-brand-500), var(--c-brand-700));
     color: var(--text-invert);
     box-shadow: 0 4px 12px rgba(79, 91, 213, 0.25);
@@ -127,7 +110,6 @@
     font-weight: var(--fw-bold);
     letter-spacing: -0.015em;
     line-height: 1.3;
-    // Місце під номер, щоб довгий заголовок під нього не заліз.
     padding-right: var(--s-8);
   }
 
@@ -138,7 +120,6 @@
   }
 }
 
-// ---- Місія -----------------------------------------------------------
 .mission {
   text-align: center;
   max-width: 22ch;
@@ -147,7 +128,6 @@
   line-height: 1.15;
   letter-spacing: -0.03em;
 
-  // Ширший ліміт для довгого речення на великих екранах.
   @include up(md) { max-width: 20ch; }
 }
 
@@ -161,7 +141,6 @@
   color: var(--text-muted);
 }
 
-// ---- Підсумковий CTA --------------------------------------------------
 .cta-panel {
   display: grid;
   gap: var(--s-5);

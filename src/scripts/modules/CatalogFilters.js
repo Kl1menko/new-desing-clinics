@@ -1,10 +1,3 @@
-/**
- * Фільтри каталогу закладів.
- *
- * Фільтрація на клієнті: список країни приходить сторінкою, і
- * перемикання чекбокса не має чекати на сервер. Кожна картка
- * несе свої атрибути в data-*, тож нічого доузгоджувати не треба.
- */
 class CatalogFilters {
   selectors = {
     root: '[data-js-catalog]',
@@ -47,14 +40,12 @@ class CatalogFilters {
 
     this.optionElements = [...this.rootElement.querySelectorAll(this.selectors.option)]
     this.cardElements = [...this.rootElement.querySelectorAll(this.selectors.card)]
-    // Початковий порядок, щоб «Relevance» можна було повернути.
     this.initialOrder = [...this.cardElements]
 
     this.bindEvents()
     this.apply()
   }
 
-  /** Обрані значення, згруповані за назвою поля. */
   get selected() {
     const groups = {}
 
@@ -70,8 +61,6 @@ class CatalogFilters {
   }
 
   matches(cardElement, groups) {
-    // Кожна група звужує вибірку (AND), значення всередині
-    // групи розширюють (OR) — звична поведінка фасетів.
     return Object.entries(groups).every(([name, values]) => {
       const raw = cardElement.dataset[name] || ''
       const own = raw.split('|').filter(Boolean)
@@ -150,8 +139,6 @@ class CatalogFilters {
       if (mode === 'name-desc') sorted.reverse()
     }
 
-    // append переносить існуючий вузол — DOM перевпорядковується
-    // без перестворення карток.
     sorted.forEach((card) => this.resultsElement.append(card))
   }
 

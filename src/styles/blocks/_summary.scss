@@ -1,20 +1,11 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Compliance summary
-//  New to this redesign: an at-a-glance answer above the detail.
-//  Without it a visitor must expand five accordions and read
-//  ~90 rows to form any judgement.
-// ============================================================
-
 .summary {
   @include card(var(--s-5));
   display: grid;
   gap: var(--s-6);
 
-  // Ряд чисел потребує більше повітря, ніж щільні картки:
-  // великий кегль інакше впирається в межі контейнера.
   @include up(md) { padding: var(--s-8); gap: var(--s-8); }
 }
 
@@ -26,10 +17,6 @@
   gap: var(--s-3);
 }
 
-// ---- Ряд показників ------------------------------------------------
-// Без карток: великі числа в ряд, розділені тонкими лініями.
-// Чотири вкладені прямокутники всередині картки-контейнера
-// створювали зайвий рівень рамок і дробили блок.
 .summary__grid {
   display: grid;
   gap: var(--s-5);
@@ -39,8 +26,6 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
 
-    // Спільні ряди число / підпис / примітка — усі три рівні
-    // вирівняні між показниками попри різну довжину текстів.
     @supports (grid-template-rows: subgrid) {
       grid-template-rows: auto auto 1fr;
 
@@ -57,7 +42,6 @@
   gap: var(--s-1);
   align-content: start;
 
-  // Роздільник між показниками замість рамки навколо кожного.
   @include up(md) {
     padding-inline: var(--s-6);
 
@@ -66,8 +50,6 @@
     & + & { border-left: 1px solid var(--border-subtle); }
   }
 
-  // На мобільному ряди по двоє — роздільник лише вертикальний
-  // між парами, щоб сітка не розсипалась.
   @include down(md) {
     &:nth-child(even) {
       padding-left: var(--s-5);
@@ -75,8 +57,6 @@
     }
   }
 
-  // Без іконки: у ряді великих чисел вона нічого не пояснювала,
-  // зате з'їдала ширину й ламала підпис на два рядки.
   &__label {
     font-size: var(--fs-xs);
     font-weight: var(--fw-semibold);
@@ -86,7 +66,6 @@
     white-space: nowrap;
   }
 
-  // Число — головний елемент рядка, тому помітно більше за решту.
   &__value {
     font-size: clamp(2rem, 3.4vw, 2.75rem);
     font-weight: var(--fw-bold);
@@ -106,8 +85,6 @@
   &--brand .stat__value { color: var(--c-brand-600); }
 }
 
-// Horizontal stacked bar: pass / partial / fail across all
-// indicators. Segments are labelled, not colour-only.
 .meter {
   display: grid;
   gap: var(--s-3);
@@ -150,8 +127,6 @@
   b { font-variant-numeric: tabular-nums; color: var(--text-primary); }
 }
 
-// Plain-language caveat. Ratios out of context invite misreading,
-// and this is health data — the disclaimer belongs next to it.
 .summary__note {
   display: flex;
   gap: var(--s-3);

@@ -1,11 +1,6 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Каталог закладів країни
-// ============================================================
-
-// ---- Шапка країни ----------------------------------------------------
 .country-head {
   display: grid;
   gap: var(--s-5);
@@ -45,16 +40,12 @@
   font-size: var(--fs-base);
 }
 
-// ---- Панель керування -------------------------------------------------
 .catalog-bar {
   display: grid;
   gap: var(--s-3);
   padding-block: var(--s-4);
   border-block: 1px solid var(--border-subtle);
 
-  // Мобільний: керування (фільтри + сортування) одним рядом
-  // угорі, лічильник під ним. Раніше він тиснувся між кнопками
-  // й розривав ряд.
   grid-template-areas:
     "controls controls"
     "count    count";
@@ -71,7 +62,6 @@
     align-items: center;
     gap: var(--s-3);
 
-    // На вузькому екрані кнопка й селект ділять ряд навпіл.
     @include down(md) {
       > * { flex: 1 1 0; }
     }
@@ -90,7 +80,6 @@
   }
 }
 
-// Кнопка «Filters» — лише там, де панель схована.
 .catalog-bar__toggle {
   display: inline-flex;
   align-items: center;
@@ -112,11 +101,9 @@
   @include down(md) { justify-content: center; }
   @include up(lg) { display: none; }
 
-  // Скільки фільтрів активні — видно, не відкриваючи панель.
   &__badge {
     display: grid;
     place-items: center;
-    // display:grid перебиває атрибут hidden, тому ховаємо явно.
     &[hidden] { display: none; }
     min-width: 20px;
     height: 20px;
@@ -155,7 +142,6 @@
   }
 }
 
-// ---- Активні фільтри ---------------------------------------------------
 .active-filters {
   display: flex;
   flex-wrap: wrap;
@@ -212,7 +198,6 @@
   &:hover { color: var(--c-brand-600); }
 }
 
-// ---- Сітка: фільтри + результати ----------------------------------------
 .catalog {
   display: grid;
   gap: var(--s-6);
@@ -225,7 +210,6 @@
   }
 }
 
-// ---- Панель фільтрів ------------------------------------------------------
 .filters {
   @include up(lg) {
     position: sticky;
@@ -235,7 +219,6 @@
     overscroll-behavior: contain;
   }
 
-  // На мобільному — висувна панель знизу, а не бічна колонка.
   @include down(lg) {
     position: fixed;
     inset: auto 0 0 0;
@@ -315,7 +298,6 @@
   ul { display: grid; gap: var(--s-1); }
 }
 
-// Рядок фільтра — уся смуга клікабельна, а не лише чекбокс.
 .filter-option {
   display: flex;
   align-items: center;
@@ -356,7 +338,6 @@
 
   span { flex: 1 1 auto; }
 
-  // Кількість — праворуч, приглушено: підказка, не акцент.
   small {
     font-size: var(--fs-sm);
     color: var(--text-muted);
@@ -364,14 +345,11 @@
   }
 }
 
-// ---- Результати -----------------------------------------------------------
 .results {
   display: grid;
   gap: var(--s-4);
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
-  // Спільні ряди: назва, метадані й підвал вирівняні між
-  // картками попри різну довжину назв.
   @supports (grid-template-rows: subgrid) {
     grid-template-rows: auto;
   }
@@ -402,8 +380,6 @@
     gap: var(--s-3);
   }
 
-  // Статус — стриманий значок, а не зелена плашка на всю ширину:
-  // «Accredited» на кожній картці підряд перетворювався на шум.
   &__status {
     display: inline-flex;
     align-items: center;
@@ -411,9 +387,6 @@
     flex: 0 0 auto;
     font-size: var(--fs-xs);
     font-weight: var(--fw-semibold);
-    // Колір тексту нейтральний: акцент несе сама печатка,
-    // інакше зелений напис на кожній картці перетворюється
-    // на шум.
     color: var(--text-secondary);
 
     &--none {
@@ -438,13 +411,10 @@
 
     a {
       @include focus-ring(3px);
-      // Уся картка клікабельна, але посилання лишається на назві —
-      // так працює і клавіатура, і контекстне меню.
       &::after { content: ""; position: absolute; inset: 0; }
     }
   }
 
-  // Потрібно для розтягнутого посилання вище.
   position: relative;
 
   &__meta {
@@ -496,7 +466,6 @@
   &:hover &__view svg { transform: translateX(2px); }
 }
 
-// Тег органу акредитації всередині картки.
 .body-tag {
   padding: 2px var(--s-2);
   border-radius: var(--r-sm);
@@ -508,7 +477,6 @@
   white-space: nowrap;
 }
 
-// ---- Порожній результат ------------------------------------------------------
 .results-empty {
   display: none;
   padding: var(--s-12) var(--s-6);
@@ -522,7 +490,6 @@
   &.is-visible { display: block; }
 }
 
-// ---- Пагінація -----------------------------------------------------------------
 .pagination {
   display: flex;
   flex-wrap: wrap;

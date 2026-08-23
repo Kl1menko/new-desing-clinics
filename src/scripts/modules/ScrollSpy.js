@@ -1,6 +1,3 @@
-/**
- * Підсвічує пункт бічної навігації для секції, яка зараз на екрані.
- */
 class ScrollSpy {
   selectors = {
     link: '[data-js-scroll-spy-link]',
@@ -30,7 +27,6 @@ class ScrollSpy {
       return
     }
 
-    // id -> наскільки секція зараз видима
     this.visibleRatios = new Map()
 
     this.observer = new IntersectionObserver(this.onIntersect, this.observerOptions)
@@ -59,7 +55,6 @@ class ScrollSpy {
       return
     }
 
-    // Активною стає найбільш видима з відстежуваних секцій.
     const [mostVisibleId] = [...this.visibleRatios.entries()].sort(
       (a, b) => b[1] - a[1]
     )[0]

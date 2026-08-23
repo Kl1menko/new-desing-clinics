@@ -1,15 +1,6 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/media" as *;
 
-// ============================================================
-//  Indicator table
-//  Desktop: real <table>, two columns.
-//  Mobile:  the SAME table re-flowed to stacked rows via CSS
-//           grid on <tr>. Semantics stay intact because we do
-//           not switch anything to display:block — we keep the
-//           table roles and only change the visual box of <tr>.
-// ============================================================
-
 .indicators {
   border: 1px solid var(--border-subtle);
   border-top: 0;
@@ -21,8 +12,6 @@
 .indicators table { width: 100%; }
 
 .indicators thead {
-  // Header row is redundant on mobile where each row is labelled
-  // by its own text; hide it visually but keep it for AT.
   @include down(md) {
     th { @include visually-hidden; }
   }
@@ -67,10 +56,6 @@
   width: 1%;
 }
 
-// ---- Mobile re-flow ---------------------------------------------
-// The label gets the full width and the score sits beneath it,
-// left-aligned. Side-by-side would squeeze these long clinical
-// sentences into a ~3-word column.
 @include down(md) {
   .indicators tbody tr {
     display: block;
@@ -79,11 +64,6 @@
 
   .indicators td { padding: 0; display: block; }
 
-  // Кегль на крок менший за базовий: 16px правильний для
-  // суцільного тексту, але в таблиці на 65 рядків дає стіну.
-  //
-  // Селектор із td обов'язковий: `.indicators td` вище має
-  // специфічність 0-1-1 і інакше перебиває цей блок.
   .indicators td.indicators__label {
     font-size: var(--fs-sm);
     line-height: 1.45;
@@ -100,9 +80,6 @@
   .score__bar { width: 72px; height: 7px; }
 }
 
-// ---- Score cell ---------------------------------------------------
-// Ratio + bar + status. Colour is never the only cue: the ratio
-// text and the aria-label carry the same meaning (WCAG 1.4.1).
 .score {
   display: inline-flex;
   align-items: center;
@@ -122,8 +99,6 @@
   .score--fail & { color: var(--c-fail-fg); }
 }
 
-// Compact bar gives instant "how far off" reading while scanning
-// a column of 20+ rows — much faster than parsing each fraction.
 .score__bar {
   position: relative;
   width: 52px;
@@ -148,16 +123,12 @@
   .score--fail & span { background: var(--c-fail-fg); }
 }
 
-// Rows that did not fully pass get a coloured left edge so they
-// can be found by eye without reading every ratio.
 .indicators tbody tr:has(.score--warn) { box-shadow: inset 3px 0 0 var(--c-warn-line); }
 .indicators tbody tr:has(.score--fail) { box-shadow: inset 3px 0 0 var(--c-fail-line); }
 
-// Fallback for browsers without :has() — class set by JS.
 .indicators tbody tr.indicators__row--warn { box-shadow: inset 3px 0 0 var(--c-warn-line); }
 .indicators tbody tr.indicators__row--fail { box-shadow: inset 3px 0 0 var(--c-fail-line); }
 
-// ---- Group summary -------------------------------------------------
 .group-summary {
   display: inline-flex;
   align-items: center;
@@ -167,9 +138,6 @@
   font-variant-numeric: tabular-nums;
 }
 
-// ---- Filter toggle ---------------------------------------------------
-// "Show only issues" — the single most useful control on a page
-// of 60+ indicators that are mostly full marks.
 .filter-toggle {
   display: inline-flex;
   align-items: center;
@@ -193,8 +161,6 @@
 
   &:hover { border-color: var(--c-brand-300); color: var(--c-brand-700); }
 
-  // Активний стан — темна нейтральна заливка, а не жовта:
-  // «фільтр увімкнено» це стан контролу, а не попередження.
   &[aria-pressed="true"] {
     background: var(--c-n-800);
     border-color: var(--c-n-800);
@@ -204,7 +170,6 @@
   }
 }
 
-// Applied to the panel when the filter is on.
 .is-filtered {
   .indicators tbody tr:not(.indicators__row--warn):not(.indicators__row--fail) { display: none; }
   .indicator-group:not(:has(tbody tr.indicators__row--warn)):not(:has(tbody tr.indicators__row--fail)) { display: none; }
@@ -218,7 +183,6 @@
   font-size: var(--fs-base);
 }
 
-// Щільніші відступи й кегль рахунку на мобільному.
 @include down(md) {
   .indicators tbody tr { padding: var(--s-3) var(--s-3) var(--s-4); }
 

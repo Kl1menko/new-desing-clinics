@@ -1,10 +1,3 @@
-/**
- * Акордеон звітів інспекцій — два рівні згортання.
- *
- * Рівень 1: сам звіт. Рівень 2: тематичні групи індикаторів
- * усередині звіту. Без другого рівня відкритий звіт вивалює
- * 30+ рядків одразу.
- */
 class InspectionAccordion {
   selectors = {
     root: '[data-js-inspection]',
@@ -65,10 +58,6 @@ class InspectionAccordion {
     })
   }
 
-  /**
-   * Групи з проблемами відкриті одразу — це те, заради чого
-   * користувач розгорнув звіт. «Чисті» лишаються згорнутими.
-   */
   initGroups() {
     document.querySelectorAll(this.selectors.group).forEach((groupElement) => {
       const toggleElement = groupElement.querySelector(this.selectors.groupToggle)
@@ -80,9 +69,6 @@ class InspectionAccordion {
 
       const hasIssues = Boolean(panelElement.querySelector(this.selectors.issueRow))
 
-      // Стан запам'ятовуємо, але НЕ розкриваємо одразу: група
-      // всередині закритого звіту роздувала б scrollHeight
-      // документа й лишала порожню смугу під футером.
       groupElement.dataset.jsGroupDefaultOpen = String(hasIssues)
       this.togglePanel(toggleElement, panelElement, false)
 
@@ -96,11 +82,9 @@ class InspectionAccordion {
     })
   }
 
-  /** Спільна механіка для обох рівнів: aria + клас + inert. */
   togglePanel(toggleElement, panelElement, isOpen) {
     toggleElement.setAttribute('aria-expanded', String(isOpen))
     panelElement.classList.toggle(this.stateClasses.isOpen, isOpen)
-    // inert прибирає згорнутий вміст із таб-порядку й дерева доступності.
     panelElement.toggleAttribute('inert', !isOpen)
   }
 
@@ -122,16 +106,11 @@ class InspectionAccordion {
     this.applyGroupDefaults(panelElement)
     this.growBars(panelElement)
 
-    // Підскролюємо тільки якщо шапку звіту вже витіснило вгору.
     if (shouldScroll && rootElement.getBoundingClientRect().top < 0) {
       rootElement.scrollIntoView({ block: 'start', behavior: 'smooth' })
     }
   }
 
-  /**
-   * При першому відкритті звіту розкриває ті групи, у яких є
-   * відхилення — саме заради них звіт і відкривають.
-   */
   applyGroupDefaults(panelElement) {
     if (panelElement.dataset.jsGroupsApplied === 'true') {
       return
@@ -152,10 +131,6 @@ class InspectionAccordion {
     })
   }
 
-  /**
-   * Смужки стартують з нуля і ростуть при першому відкритті —
-   * щоб рух читався як вимірювання, а не закінчувався до появи.
-   */
   growBars(panelElement) {
     if (panelElement.dataset.jsBarsGrown === 'true') {
       return
@@ -196,7 +171,6 @@ class InspectionAccordion {
     })
   }
 
-  /** Відкриває звіт, на який вказує хеш — щоб працювали прямі лінки. */
   openFromHash = () => {
     const targetId = location.hash.slice(1)
 
