@@ -1,0 +1,55 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/media" as *;
+
+// ============================================================
+//  Breadcrumbs
+// ============================================================
+
+.breadcrumbs {
+  margin-bottom: var(--s-5);
+  font-size: var(--fs-sm);
+
+  ol {
+    display: flex;
+    align-items: center;
+    gap: var(--s-1);
+    // On narrow screens the trail scrolls instead of wrapping into
+    // a ragged three-line block.
+    @include scroll-x;
+    white-space: nowrap;
+    padding-bottom: var(--s-1);
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-1);
+
+    &:not(:last-child)::after {
+      content: "";
+      width: 5px;
+      height: 5px;
+      margin-inline: var(--s-1);
+      border-top: 1.5px solid var(--c-n-400);
+      border-right: 1.5px solid var(--c-n-400);
+      transform: rotate(45deg);
+    }
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    color: var(--text-muted);
+    transition: color var(--dur-fast) var(--ease-out);
+    @include focus-ring;
+    &:hover { color: var(--c-brand-600); }
+  }
+
+  [aria-current="page"] {
+    color: var(--text-primary);
+    font-weight: var(--fw-semibold);
+  }
+}

@@ -1,0 +1,35 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/media" as *;
+
+// ============================================================
+//  Toast (copy confirmation)
+// ============================================================
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--mobile-bar) + var(--s-4));
+  z-index: calc(var(--z-drawer) + 10);
+  transform: translate(-50%, 12px);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-pill);
+  background: var(--c-n-900);
+  color: var(--text-invert);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  box-shadow: var(--e-4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-mid) var(--ease-out),
+              transform var(--dur-mid) var(--ease-out),
+              visibility var(--dur-mid);
+
+  svg { width: 15px; height: 15px; color: var(--c-pass-line); }
+
+  &.is-visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+
+  @include up(lg) { bottom: var(--s-6); }
+}

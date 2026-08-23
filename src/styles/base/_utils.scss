@@ -1,0 +1,27 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/media" as *;
+
+// ============================================================
+//  Utility classes
+// ============================================================
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+// Блокує скрол сторінки, поки відкрите мобільне меню.
+.is-lock {
+  overflow: hidden;
+}
+
+.hidden-mobile {
+  @include down(lg) {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @include up(lg) {
+    display: none !important;
+  }
+}

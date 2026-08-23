@@ -1,0 +1,70 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/media" as *;
+
+// ============================================================
+//  Container & page grid
+// ============================================================
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.page {
+  padding-block: var(--s-5) var(--s-12);
+
+  @include up(lg) { padding-bottom: var(--s-16); }
+}
+
+// Two-column profile grid.
+// Mobile: single column, identity card first.
+// Desktop: sticky sidebar + scrolling detail column.
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+
+  @include up(lg) {
+    grid-template-columns: minmax(340px, 400px) minmax(0, 1fr);
+    gap: var(--s-6);
+    // align-items НЕ ставимо в start: колонки мають бути однакової
+    // висоти, щоб sticky в лівій мала хід на всю сторінку.
+    align-items: stretch;
+  }
+
+  @include up(xxl) {
+    grid-template-columns: minmax(380px, 440px) minmax(0, 1fr);
+  }
+}
+
+.profile-grid__aside {
+  display: grid;
+  gap: var(--s-4);
+
+  // Липкою є лише навігація всередині колонки (_section-nav.scss).
+  //
+  // Ключове: колонка МАЄ тягнутись на всю висоту рядка
+  // (align-self: stretch, тобто дефолт). Sticky живе тільки в
+  // межах свого батька, тож на короткій колонці навігація
+  // проїжджала ~1150px і зникала. Розтягнута колонка дає їй
+  // хід до самого низу сторінки.
+  @include up(lg) {
+    align-self: stretch;
+    // Колонка сама — grid. Її рядки (картка, навігація) тримаємо
+    // угорі, а вільний простір віддаємо останньому треку: саме
+    // цей запас і дає навігації хід до низу сторінки.
+    grid-template-rows: auto auto 1fr;
+  }
+}
+
+.profile-grid__main {
+  display: grid;
+  gap: var(--s-5);
+  min-width: 0;   // lets inner scroll containers actually shrink
+}
+
+.stack   { display: grid; gap: var(--s-4); }
+.stack-sm { display: grid; gap: var(--s-2); }
+.stack-lg { display: grid; gap: var(--s-6); }

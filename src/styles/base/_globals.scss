@@ -1,0 +1,53 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/media" as *;
+
+// ============================================================
+//  Typographic helpers
+// ============================================================
+
+.h1 { font-size: var(--fs-3xl); letter-spacing: -0.02em; }
+.h2 { font-size: var(--fs-2xl); letter-spacing: -0.015em; }
+.h3 { font-size: var(--fs-xl);  letter-spacing: -0.01em; }
+.h4 { font-size: var(--fs-lg);  letter-spacing: -0.005em; }
+
+// Small uppercase label used above groups of fields and on
+// table headers. Tracking added back because caps need it.
+.eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lead {
+  font-size: var(--fs-lg);
+  color: var(--text-secondary);
+  line-height: var(--lh-normal);
+}
+
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+// Tabular figures so ratios line up column-wise when scanning.
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+// Skip link — first tab stop on the page (WCAG 2.4.1).
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: var(--s-4);
+  transform: translateY(-120%);
+  z-index: calc(var(--z-header) + 10);
+  background: var(--c-brand-500);
+  color: var(--text-invert);
+  padding: var(--s-3) var(--s-5);
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  font-weight: var(--fw-semibold);
+  transition: transform var(--dur-fast) var(--ease-out);
+
+  &:focus { transform: translateY(0); }
+}

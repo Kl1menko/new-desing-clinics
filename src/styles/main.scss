@@ -1,0 +1,36 @@
+// ============================================================
+//  WhatClinicSafe — home + institution profile
+//  Sass modules (@use), структура: base / helpers / blocks
+// ============================================================
+
+@use "helpers/variables";
+@use "helpers/media";
+@use "helpers/mixins";
+
+@use "base/normalize";
+@use "base/globals";
+@use "base/utils";
+
+@use "blocks/container";
+@use "blocks/header";
+@use "blocks/footer";
+@use "blocks/button";
+@use "blocks/badge";
+@use "blocks/verified";
+@use "blocks/breadcrumbs";
+@use "blocks/card";
+@use "blocks/accreditation";
+@use "blocks/inspection";
+@use "blocks/indicator-table";
+@use "blocks/summary";
+@use "blocks/section-nav";
+@use "blocks/mobile-bar";
+@use "blocks/toast";
+
+// Блоки головної — після базових компонентів, щоб могли уточнювати
+// їхні стилі (напр. .btn усередині пошукового бару).
+@use "blocks/hero";
+@use "blocks/country-rail";
+@use "blocks/promise";
+@use "blocks/sources";
+@use "blocks/catalog";

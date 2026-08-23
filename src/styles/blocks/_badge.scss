@@ -1,0 +1,122 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/media" as *;
+
+// ============================================================
+//  Badges & chips
+//
+//  Одна система замість чотирьох. Раніше кожен бейдж мав власну
+//  заливку, рамку й колір тексту — на сторінці одночасно світилось
+//  до п'яти різних плям, і жодна не читалась як важливіша.
+//
+//  Тепер: нейтральна основа для всіх. Статус несе крапка 6px і
+//  колір самого тексту, не фон. Так кольорові акценти лишаються
+//  тільки там, де є реальне відхилення.
+// ============================================================
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-sm);
+  background: var(--c-n-50);
+  border: 1px solid var(--border-subtle);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  line-height: 1.7;
+  white-space: nowrap;
+  color: var(--text-secondary);
+
+  svg {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 auto;
+    color: var(--c-n-400);
+  }
+
+  // Крапка-індикатор статусу.
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    background: var(--c-n-400);
+  }
+
+  // Без крапки — коли бейдж суто інформаційний.
+  &--plain::before { display: none; }
+
+  // Без рамки й фону — для значення всередині поля, де рамка
+  // картки вже дає межу і зайвий контейнер тільки шумить.
+  &--bare {
+    padding-inline: 0;
+    background: none;
+    border-color: transparent;
+    font-weight: var(--fw-semibold);
+  }
+}
+
+.badge--pass {
+  color: var(--c-pass-fg);
+  &::before { background: var(--c-pass-fg); }
+}
+
+.badge--warn {
+  color: var(--c-warn-fg);
+  &::before { background: var(--c-warn-fg); }
+}
+
+.badge--fail {
+  color: var(--c-fail-fg);
+  &::before { background: var(--c-fail-fg); }
+}
+
+.badge--neutral {
+  color: var(--text-secondary);
+  &::before { background: var(--c-n-400); }
+}
+
+// ============================================================
+//  Chips — джерела акредитації (QUALICOR, CoBRHA)
+// ============================================================
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-sm);
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+  transition: border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+  @include focus-ring;
+
+  // Крапка = джерело підтверджене.
+  &::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-pass-fg);
+    flex: 0 0 auto;
+  }
+}
+
+a.chip:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+// Чип із печаткою: власна крапка більше не потрібна.
+.chip--verified::before { display: none; }

@@ -1,0 +1,149 @@
+{
+  "reports": [
+    {
+      "id": "zi-2022-00258",
+      "title": "Geriatric care program",
+      "type": "Unannounced inspection",
+      "date": "12 December 2022",
+      "datetime": "2022-12-12",
+      "ref": "ZI-2022-00258",
+      "groups": [
+        {"name": "Staff", "rows": [
+          ["There is no geriatrician head of service with a full day job active in the hospital. Number of geriatric departments with sufficient FTE nurses", "1/2"]
+        ]},
+        {"name": "Safe care", "rows": [
+          ["Number of departments with all file data secured", "3/3"],
+          ["Number of patients with an accessible call system", "18/18"],
+          ["Number of rooms other than patient rooms with an effective calling system", "8/8"],
+          ["Number of patient rooms/care providers with a resuscitation call system", "11/11"],
+          ["Number of rooms with secured windows", "15/15"],
+          ["Number of rooms with orientation", "9/11"],
+          ["Number of departments with measures against runaway behavior", "3/3"],
+          ["Number of departments with measures against runaway behavior that can be applied at any time for every admitted patient", "3/3"],
+          ["Number of departments with safe storage of dangerous products", "0/3"],
+          ["Number of departments where concentrated potassium chloride and insulin are specifically labeled", "3/3"],
+          ["Number of medicines with signed and complete medical order", "13/13"],
+          ["Number of medicines not administered with reason for not administering", "17/20"],
+          ["Number of departments with safe storage of medication", "3/3"]
+        ]},
+        {"name": "Standardized care", "rows": [
+          ["Number of patients with a complete and correct identification band", "15/15"],
+          ["Number of files with screening for inclusion in the geriatric care program", "29/30"],
+          ["Number of files with positive screening for inclusion in the geriatric care program without ILT involvement/evaluation, with motivation/reason in the file for not involving ILT", "7/7"],
+          ["Number of files with positive screening with ILT involvement/evaluation with demonstrable advice and/or without advice but demonstrable in the file that the patient does not have a geriatric profile", "7/8"],
+          ["Number of files with information on all controlled risk factors", "7/20"],
+          ["Number of files with information on at least 4 of the 6 risk factors checked", "20/20"],
+          ["Number of files with allergy information", "20/20"],
+          ["Number of files with home medication information", "20/20"],
+          ["Number of files with information regarding care limitations and/or negative advance directive", "20/20"],
+          ["Number of days with pain scores in the file", "20/20"]
+        ]},
+        {"name": "Hygiene", "rows": [
+          ["Number of employees in order for hand hygiene", "14/15"],
+          ["Number of dirty storage areas with hand alcohol and a sink that meets the requirement", "2/2"]
+        ]},
+        {"name": "Communication", "rows": [
+          ["Number of files with sufficient reports of the multidisciplinary consultation moments with a minimum of 3 disciplines demonstrably present", "19/20"],
+          ["Number of files with dismissal letter", "20/20"],
+          ["Number of discharge letters with all checked subjects present", "20/20"],
+          ["Number of files with notes on medical surveillance on all days monitored", "20/20"]
+        ]}
+      ]
+    },
+    {
+      "id": "v-2018-ancl-0028",
+      "title": "Cardiac care process",
+      "type": "Inspection report",
+      "date": "5 December 2018",
+      "datetime": "2018-12-05",
+      "ref": "V-2018-ANCL-0028",
+      "groups": [
+        {"name": "Safe care", "rows": [
+          ["External pacemaker is available for care program P. Number of external pacemakers with timely preventive monitoring", "1/1"],
+          ["Number of patient rooms/care providers with call systems for resuscitation", "10/10"],
+          ["Telemetry or bedside monitoring is available for care program A. Number of departments where a person responsible for telemetry has been appointed", "1/1"],
+          ["Number of departments where the telemetry responsible can immediately release himself in the event of an alarm", "1/1"],
+          ["Number of departments with auditory/visual monitoring telemetry", "1/1"],
+          ["Number of central components of telemetry monitoring with timely preventive control", "1/1"]
+        ]},
+        {"name": "Standardized care", "rows": [
+          ["Number of days with pain scores in the file", "19/20"]
+        ]}
+      ]
+    },
+    {
+      "id": "v-2018-livi-0005",
+      "title": "Second round of surgical and internist care process",
+      "type": "Inspection report",
+      "date": "7 August 2018",
+      "datetime": "2018-08-07",
+      "ref": "V-2018-LIVI-0005",
+      "groups": [
+        {"name": "Staff", "rows": [
+          ["Number of ICU units whose medical permanence is satisfactory", "1/1"]
+        ]},
+        {"name": "Safe care", "rows": [
+          ["Number of infusions and syringes with all data", "15/15"],
+          ["Number of defibrillators with timely preventive control", "5/5"],
+          ["Number of ECG devices with timely preventive monitoring", "2/2"],
+          ["Number of monitors with timely preventive control", "5/5"],
+          ["Number of doctors with advanced resuscitation training in the past year or with a valid certificate for a maximum of 5 years", "9/13"],
+          ["Number of patients under general anesthesia with permanent supervision by the anesthetist", "3/3"]
+        ]},
+        {"name": "Standardized care", "rows": [
+          ["Number of days with all parameters in the file", "40/40"],
+          ["Number of days with pain scores in the file", "50/50"],
+          ["Number of preoperative patient files accessible in the operating room", "6/6"],
+          ["Number of preoperative patient records with all subjects checked", "2/6"],
+          ["Number of patients with a complete identification band", "9/9"]
+        ]},
+        {"name": "Hygiene", "rows": [
+          ["Number of staff in order for hand hygiene", "24/24"]
+        ]},
+        {"name": "Communication", "rows": [
+          ["Number of files with dismissal letter", "20/20"],
+          ["Number of discharge letters with all checked subjects present", "17/20"]
+        ]},
+        {"name": "Follow-up", "rows": [
+          ["Decision: a check 2 will take place on this campus — No. The following shortages will be monitored by the Care and Health agency: number of emergency physicians without advanced training in resuscitation (ALS)", "4/13"]
+        ]}
+      ]
+    },
+    {
+      "id": "v-2015-ancl-0017",
+      "title": "Internal care program — check 2",
+      "type": "Unannounced inspection",
+      "date": "12 October 2015",
+      "datetime": "2015-10-12",
+      "ref": "V-2015-ANCL-0017",
+      "groups": [
+        {"name": "Staff", "rows": [
+          ["Number of ICU units whose medical permanence is satisfactory", "1/1"]
+        ]}
+      ]
+    },
+    {
+      "id": "internal-care-process-2015",
+      "title": "Internal care process",
+      "type": "Inspection report",
+      "date": "8 May 2015",
+      "datetime": "2015-05-08",
+      "ref": null,
+      "groups": [
+        {"name": "Communication", "rows": [
+          ["Number of patients in ICU whose medical and nursing records are accessible", "0/7"],
+          ["Number of patients in ICU with clear indication of a medical coordinator", "7/7"],
+          ["Number of files with sufficient notes about the multidisciplinary consultation moments in ICU", "0/2"],
+          ["Number of files with complete transfer data", "13/13"],
+          ["Number of files with notes about the ward round on all audited days", "14/20"],
+          ["Number of files after day admission with discharge decision", "6/10"],
+          ["Number of files with dismissal letter", "15/20"],
+          ["Number of discharge letters with all checked subjects present", "15/15"],
+          ["Number of patients who were sufficiently informed about the controlled aspects before admission", "2/2"],
+          ["Number of patients who were sufficiently informed about waiting times in the emergency department", "4/4"],
+          ["Number of patients who received full information about the checked items at discharge", "1/3"]
+        ]}
+      ]
+    }
+  ]
+}

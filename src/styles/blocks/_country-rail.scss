@@ -1,0 +1,173 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/media" as *;
+
+// ============================================================
+//  Стрічка країн
+//
+//  Свідомо виходить за межі контейнера й обрізається краєм
+//  екрана: видно, що ряд триває далі, і це запрошує гортати.
+//  Замкнена в контейнер стрічка такого сигналу не дає.
+// ============================================================
+
+.country-rail {
+  // Повітря між пошуковим баром і стрічкою: секція має читатись
+  // як окремий крок, а не як продовження форми.
+  margin-top: var(--s-16);
+
+  @include up(md) { margin-top: var(--s-24); }
+}
+
+.country-rail__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 240px;
+  gap: var(--s-4);
+
+  padding-right: var(--gutter);
+  padding-bottom: var(--s-4);
+  @include scroll-x;
+
+  // Картка «прилипає» до краю при гортанні — ряд не зупиняється
+  // на півдорозі між двома картками.
+  //
+  // scroll-padding обов'язковий: без нього snap притискає картку
+  // до краю вікна, ігноруючи лівий padding, і перша картка
+  // виїжджала за контейнер.
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: max(
+    var(--gutter),
+    calc((100vw - var(--container)) / 2 + var(--gutter))
+  );
+
+  > * { scroll-snap-align: start; }
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+
+  @include up(md) { grid-auto-columns: 280px; gap: var(--s-5); }
+
+  // Перша картка вирівнюється по лівому краю контейнера на всіх
+  // ширинах, а ряд усе одно тягнеться за правий край екрана.
+  // max() потрібен, бо на вузьких екранах вираз стає від'ємним.
+  padding-left: max(
+    var(--gutter),
+    calc((100vw - var(--container)) / 2 + var(--gutter))
+  );
+}
+
+.country-card {
+  display: grid;
+  gap: var(--s-3);
+  @include focus-ring;
+
+  &:hover .country-card__media img { transform: scale(1.04); }
+}
+
+.country-card__media {
+  position: relative;
+  // 3:4 — портретний кадр, як у референсі: місто читається
+  // краще, ніж у широкій «поштовій листівці».
+  aspect-ratio: 3 / 4;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--c-n-100);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+}
+
+// Плейсхолдер для країн, у яких ще немає знімка.
+.country-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  gap: var(--s-2);
+  justify-items: center;
+  color: var(--c-n-400);
+  background:
+    repeating-linear-gradient(45deg,
+      var(--c-n-50) 0 12px,
+      var(--c-n-100) 12px 24px);
+
+  svg { width: 26px; height: 26px; }
+  span { font-size: var(--fs-xs); font-weight: var(--fw-medium); }
+}
+
+.country-card__region {
+  position: absolute;
+  left: var(--s-3);
+  top: var(--s-3);
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+// Підпис під фото, а не поверх нього: не залежить від того,
+// світлий чи темний знімок, і завжди контрастний.
+.country-card__body {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+
+.country-card__name {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+}
+
+.country-card__count {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+// ---- Керування стрічкою ---------------------------------------------
+.country-rail__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-4);
+  margin-bottom: var(--s-5);
+}
+
+.rail-nav {
+  display: none;
+  gap: var(--s-2);
+
+  // Кнопки лише там, де немає зручного тач-гортання.
+  @include up(lg) { display: flex; }
+
+  button {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border-subtle);
+    background: var(--surface-card);
+    color: var(--text-primary);
+    transition: border-color var(--dur-fast) var(--ease-out),
+                background-color var(--dur-fast) var(--ease-out);
+    @include focus-ring;
+
+    svg { width: 18px; height: 18px; }
+
+    &:hover:not(:disabled) { border-color: var(--border-strong); background: var(--c-n-50); }
+
+    &:disabled { opacity: 0.35; cursor: default; }
+  }
+}
