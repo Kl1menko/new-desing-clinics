@@ -87,7 +87,10 @@ class SpecialtyCombobox {
         (option, index) =>
           `<li role="option" id="specialty-option-${index}" aria-selected="${
             index === this.activeIndex
-          }">${this.highlight(option, query)}</li>`
+          }" data-value="${option.replace(/"/g, '&quot;')}">${this.highlight(
+            option,
+            query
+          )}</li>`
       )
       .join('')
 
@@ -196,7 +199,7 @@ class SpecialtyCombobox {
     const optionElement = event.target.closest('[role="option"]')
 
     if (optionElement) {
-      this.select(optionElement.textContent)
+      this.select(optionElement.dataset.value)
       this.inputElement.focus()
     }
   }

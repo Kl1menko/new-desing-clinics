@@ -16,6 +16,7 @@ class Header {
   }
 
   scrollOffset = 4
+  focusFallbackDelay = 320
 
   constructor() {
     this.rootElement = document.querySelector(this.selectors.root)
@@ -47,11 +48,13 @@ class Header {
     document.documentElement.classList.toggle(this.stateClasses.isLock, isOpen)
 
     if (isOpen) {
-      this.drawerElement.addEventListener(
-        'transitionend',
-        () => this.closeElement?.focus(),
-        { once: true }
-      )
+      const focusClose = () => {
+        clearTimeout(this.focusTimerId)
+        this.closeElement?.focus()
+      }
+
+      this.drawerElement.addEventListener('transitionend', focusClose, { once: true })
+      this.focusTimerId = setTimeout(focusClose, this.focusFallbackDelay)
     } else if (shouldRestoreFocus) {
       this.burgerElement?.focus()
     }

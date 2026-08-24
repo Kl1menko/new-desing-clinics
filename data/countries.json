@@ -1,0 +1,794 @@
+{
+ "japan": {
+  "name": "Japan",
+  "region": "Asia",
+  "flag": "assets/images/countries/japan-480.webp",
+  "lead": "5,820 of 6,149 institutions hold a verified accreditation from a recognised body.",
+  "canonical": "https://www.whatclinicsafe.com/care-services/Japan/",
+  "description": "Browse 6,149 medical institutions in Japan with verified accreditation records from national health authorities and international accreditation bodies.",
+  "clinics": [
+   {
+    "name": "Kansai Medical University Hospital",
+    "type": "University hospital",
+    "city": "Hirakata",
+    "bodies": [
+     "JMIP",
+     "JCQHC"
+    ],
+    "since": 2011,
+    "accredited": true
+   },
+   {
+    "name": "Keiju Medical Center",
+    "type": "General hospital",
+    "city": "Nanao",
+    "bodies": [
+     "JCQHC"
+    ],
+    "since": 2014,
+    "accredited": true
+   },
+   {
+    "name": "Yonemori Hospital",
+    "type": "General hospital",
+    "city": "Kagoshima",
+    "bodies": [
+     "JMIP"
+    ],
+    "since": 2016,
+    "accredited": true
+   },
+   {
+    "name": "Rinku General Medical Center",
+    "type": "General hospital",
+    "city": "Izumisano",
+    "bodies": [
+     "JMIP",
+     "JCQHC"
+    ],
+    "since": 2009,
+    "accredited": true
+   },
+   {
+    "name": "International Goodwill Hospital",
+    "type": "General hospital",
+    "city": "Yokohama",
+    "bodies": [
+     "JMIP"
+    ],
+    "since": 2013,
+    "accredited": true
+   },
+   {
+    "name": "National Center of Neurology and Psychiatry",
+    "type": "Specialist clinic",
+    "city": "Kodaira",
+    "bodies": [
+     "JCQHC"
+    ],
+    "since": 2008,
+    "accredited": true
+   },
+   {
+    "name": "Osaka University Hospital",
+    "type": "University hospital",
+    "city": "Suita",
+    "bodies": [
+     "JCQHC"
+    ],
+    "since": 2010,
+    "accredited": true
+   },
+   {
+    "name": "Sapporo Kosei General Hospital",
+    "type": "General hospital",
+    "city": "Sapporo",
+    "bodies": [],
+    "since": null,
+    "accredited": false
+   },
+   {
+    "name": "Fukuoka Tokushukai Medical Center",
+    "type": "General hospital",
+    "city": "Kasuga",
+    "bodies": [
+     "JMIP"
+    ],
+    "since": 2017,
+    "accredited": true
+   }
+  ],
+  "total": "6,149"
+ },
+ "united-kingdom": {
+  "name": "United Kingdom",
+  "region": "Europe",
+  "flag": "assets/images/countries/uk-480.webp",
+  "lead": "1,118 of 1,240 institutions hold a verified accreditation from a recognised body.",
+  "canonical": "https://www.whatclinicsafe.com/care-services/united-kingdom",
+  "description": "Browse 6,149 medical institutions in United Kingdom with verified accreditation records from national health authorities and international accreditation bodies.",
+  "clinics": [
+   {
+    "name": "Royal Free Hospital",
+    "type": "University hospital",
+    "city": "London",
+    "bodies": [
+     "CQC"
+    ],
+    "since": 2009,
+    "accredited": true
+   },
+   {
+    "name": "Guy's and St Thomas'",
+    "type": "University hospital",
+    "city": "London",
+    "bodies": [
+     "CQC"
+    ],
+    "since": 2011,
+    "accredited": true
+   },
+   {
+    "name": "Addenbrooke's Hospital",
+    "type": "General hospital",
+    "city": "Cambridge",
+    "bodies": [
+     "CQC"
+    ],
+    "since": 2013,
+    "accredited": true
+   },
+   {
+    "name": "Manchester Royal Infirmary",
+    "type": "General hospital",
+    "city": "Manchester",
+    "bodies": [
+     "CQC"
+    ],
+    "since": 2010,
+    "accredited": true
+   },
+   {
+    "name": "Queen Elizabeth Hospital",
+    "type": "University hospital",
+    "city": "Birmingham",
+    "bodies": [
+     "CQC"
+    ],
+    "since": 2012,
+    "accredited": true
+   },
+   {
+    "name": "Western General Hospital",
+    "type": "General hospital",
+    "city": "Edinburgh",
+    "bodies": [
+     "HIS"
+    ],
+    "since": 2014,
+    "accredited": true
+   },
+   {
+    "name": "University Hospital of Wales",
+    "type": "University hospital",
+    "city": "Cardiff",
+    "bodies": [
+     "HIW"
+    ],
+    "since": 2015,
+    "accredited": true
+   },
+   {
+    "name": "Spire Bushey Hospital",
+    "type": "Private clinic",
+    "city": "Bushey",
+    "bodies": [
+     "CQC"
+    ],
+    "since": 2016,
+    "accredited": true
+   },
+   {
+    "name": "Nuffield Health Leeds",
+    "type": "Private clinic",
+    "city": "Leeds",
+    "bodies": [],
+    "since": null,
+    "accredited": false
+   }
+  ],
+  "total": "1,240"
+ },
+ "germany": {
+  "name": "Germany",
+  "region": "Europe",
+  "flag": "assets/images/countries/germany-480.webp",
+  "lead": "1,297 of 1,420 institutions hold a verified accreditation from a recognised body.",
+  "canonical": "https://www.whatclinicsafe.com/care-services/germany",
+  "description": "Browse 6,149 medical institutions in Germany with verified accreditation records from national health authorities and international accreditation bodies.",
+  "clinics": [
+   {
+    "name": "Charité Universitätsmedizin",
+    "type": "University hospital",
+    "city": "Berlin",
+    "bodies": [
+     "KTQ"
+    ],
+    "since": 2008,
+    "accredited": true
+   },
+   {
+    "name": "Universitätsklinikum Heidelberg",
+    "type": "University hospital",
+    "city": "Heidelberg",
+    "bodies": [
+     "KTQ"
+    ],
+    "since": 2010,
+    "accredited": true
+   },
+   {
+    "name": "Klinikum rechts der Isar",
+    "type": "University hospital",
+    "city": "Munich",
+    "bodies": [
+     "KTQ"
+    ],
+    "since": 2011,
+    "accredited": true
+   },
+   {
+    "name": "Universitätsklinikum Hamburg-Eppendorf",
+    "type": "University hospital",
+    "city": "Hamburg",
+    "bodies": [
+     "KTQ"
+    ],
+    "since": 2009,
+    "accredited": true
+   },
+   {
+    "name": "Uniklinik Köln",
+    "type": "University hospital",
+    "city": "Cologne",
+    "bodies": [
+     "KTQ"
+    ],
+    "since": 2012,
+    "accredited": true
+   },
+   {
+    "name": "Asklepios Klinik Barmbek",
+    "type": "General hospital",
+    "city": "Hamburg",
+    "bodies": [
+     "DIN EN 15224"
+    ],
+    "since": 2014,
+    "accredited": true
+   },
+   {
+    "name": "Sana Klinikum Offenbach",
+    "type": "General hospital",
+    "city": "Offenbach",
+    "bodies": [
+     "KTQ"
+    ],
+    "since": 2013,
+    "accredited": true
+   },
+   {
+    "name": "Schön Klinik München",
+    "type": "Private clinic",
+    "city": "Munich",
+    "bodies": [
+     "DIN EN 15224"
+    ],
+    "since": 2017,
+    "accredited": true
+   },
+   {
+    "name": "MEDIAN Klinik Berlin",
+    "type": "Rehabilitation centre",
+    "city": "Berlin",
+    "bodies": [],
+    "since": null,
+    "accredited": false
+   }
+  ],
+  "total": "1,420"
+ },
+ "spain": {
+  "name": "Spain",
+  "region": "Europe",
+  "flag": "assets/images/countries/spain-480.webp",
+  "lead": "764 of 870 institutions hold a verified accreditation from a recognised body.",
+  "canonical": "https://www.whatclinicsafe.com/care-services/spain",
+  "description": "Browse 6,149 medical institutions in Spain with verified accreditation records from national health authorities and international accreditation bodies.",
+  "clinics": [
+   {
+    "name": "Hospital Clínic de Barcelona",
+    "type": "University hospital",
+    "city": "Barcelona",
+    "bodies": [
+     "ACSA"
+    ],
+    "since": 2009,
+    "accredited": true
+   },
+   {
+    "name": "Hospital La Paz",
+    "type": "University hospital",
+    "city": "Madrid",
+    "bodies": [
+     "ACSA"
+    ],
+    "since": 2010,
+    "accredited": true
+   },
+   {
+    "name": "Hospital Universitario Virgen del Rocío",
+    "type": "University hospital",
+    "city": "Seville",
+    "bodies": [
+     "ACSA"
+    ],
+    "since": 2008,
+    "accredited": true
+   },
+   {
+    "name": "Hospital Universitari Vall d'Hebron",
+    "type": "University hospital",
+    "city": "Barcelona",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2012,
+    "accredited": true
+   },
+   {
+    "name": "Hospital Quirónsalud Madrid",
+    "type": "Private clinic",
+    "city": "Madrid",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2014,
+    "accredited": true
+   },
+   {
+    "name": "Hospital La Fe",
+    "type": "General hospital",
+    "city": "Valencia",
+    "bodies": [
+     "ACSA"
+    ],
+    "since": 2011,
+    "accredited": true
+   },
+   {
+    "name": "Clínica Universidad de Navarra",
+    "type": "Private clinic",
+    "city": "Pamplona",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2013,
+    "accredited": true
+   },
+   {
+    "name": "Hospital Regional de Málaga",
+    "type": "General hospital",
+    "city": "Málaga",
+    "bodies": [
+     "AENOR"
+    ],
+    "since": 2015,
+    "accredited": true
+   },
+   {
+    "name": "Centro Médico Teknon",
+    "type": "Private clinic",
+    "city": "Barcelona",
+    "bodies": [],
+    "since": null,
+    "accredited": false
+   }
+  ],
+  "total": "870"
+ },
+ "turkey": {
+  "name": "Turkey",
+  "region": "Eurasia",
+  "flag": "assets/images/countries/turkey-480.webp",
+  "lead": "648 of 760 institutions hold a verified accreditation from a recognised body.",
+  "canonical": "https://www.whatclinicsafe.com/care-services/turkey",
+  "description": "Browse 6,149 medical institutions in Turkey with verified accreditation records from national health authorities and international accreditation bodies.",
+  "clinics": [
+   {
+    "name": "Acıbadem Maslak Hospital",
+    "type": "Private clinic",
+    "city": "Istanbul",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2010,
+    "accredited": true
+   },
+   {
+    "name": "Memorial Şişli Hospital",
+    "type": "Private clinic",
+    "city": "Istanbul",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2009,
+    "accredited": true
+   },
+   {
+    "name": "Anadolu Medical Center",
+    "type": "Private clinic",
+    "city": "Kocaeli",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2011,
+    "accredited": true
+   },
+   {
+    "name": "Hacettepe University Hospital",
+    "type": "University hospital",
+    "city": "Ankara",
+    "bodies": [
+     "SKS"
+    ],
+    "since": 2012,
+    "accredited": true
+   },
+   {
+    "name": "Ege University Hospital",
+    "type": "University hospital",
+    "city": "İzmir",
+    "bodies": [
+     "SKS"
+    ],
+    "since": 2013,
+    "accredited": true
+   },
+   {
+    "name": "Medicana International Ankara",
+    "type": "Private clinic",
+    "city": "Ankara",
+    "bodies": [
+     "Health Türkiye"
+    ],
+    "since": 2015,
+    "accredited": true
+   },
+   {
+    "name": "Liv Hospital Ulus",
+    "type": "Private clinic",
+    "city": "Istanbul",
+    "bodies": [
+     "Health Türkiye"
+    ],
+    "since": 2016,
+    "accredited": true
+   },
+   {
+    "name": "Antalya Training Hospital",
+    "type": "General hospital",
+    "city": "Antalya",
+    "bodies": [
+     "SKS"
+    ],
+    "since": 2014,
+    "accredited": true
+   },
+   {
+    "name": "Bursa City Hospital",
+    "type": "General hospital",
+    "city": "Bursa",
+    "bodies": [],
+    "since": null,
+    "accredited": false
+   }
+  ],
+  "total": "760"
+ },
+ "thailand": {
+  "name": "Thailand",
+  "region": "Asia",
+  "flag": "assets/images/countries/thailand-480.webp",
+  "lead": "441 of 540 institutions hold a verified accreditation from a recognised body.",
+  "canonical": "https://www.whatclinicsafe.com/care-services/thailand",
+  "description": "Browse 6,149 medical institutions in Thailand with verified accreditation records from national health authorities and international accreditation bodies.",
+  "clinics": [
+   {
+    "name": "Bumrungrad International",
+    "type": "Private clinic",
+    "city": "Bangkok",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2002,
+    "accredited": true
+   },
+   {
+    "name": "Bangkok Hospital",
+    "type": "Private clinic",
+    "city": "Bangkok",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2007,
+    "accredited": true
+   },
+   {
+    "name": "Samitivej Sukhumvit",
+    "type": "Private clinic",
+    "city": "Bangkok",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2009,
+    "accredited": true
+   },
+   {
+    "name": "Siriraj Hospital",
+    "type": "University hospital",
+    "city": "Bangkok",
+    "bodies": [
+     "HA Thailand"
+    ],
+    "since": 2010,
+    "accredited": true
+   },
+   {
+    "name": "Chiang Mai Ram Hospital",
+    "type": "General hospital",
+    "city": "Chiang Mai",
+    "bodies": [
+     "HA Thailand"
+    ],
+    "since": 2012,
+    "accredited": true
+   },
+   {
+    "name": "Phuket International Hospital",
+    "type": "Private clinic",
+    "city": "Phuket",
+    "bodies": [
+     "HA Thailand"
+    ],
+    "since": 2013,
+    "accredited": true
+   },
+   {
+    "name": "Ramathibodi Hospital",
+    "type": "University hospital",
+    "city": "Bangkok",
+    "bodies": [
+     "HA Thailand"
+    ],
+    "since": 2011,
+    "accredited": true
+   },
+   {
+    "name": "Vejthani Hospital",
+    "type": "Private clinic",
+    "city": "Bangkok",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2014,
+    "accredited": true
+   },
+   {
+    "name": "Pattaya Memorial Hospital",
+    "type": "General hospital",
+    "city": "Pattaya",
+    "bodies": [],
+    "since": null,
+    "accredited": false
+   }
+  ],
+  "total": "540"
+ },
+ "egypt": {
+  "name": "Egypt",
+  "region": "Africa",
+  "flag": "assets/images/countries/egypt-480.webp",
+  "lead": "236 of 310 institutions hold a verified accreditation from a recognised body.",
+  "canonical": "https://www.whatclinicsafe.com/care-services/egypt",
+  "description": "Browse 6,149 medical institutions in Egypt with verified accreditation records from national health authorities and international accreditation bodies.",
+  "clinics": [
+   {
+    "name": "Dar Al Fouad Hospital",
+    "type": "Private clinic",
+    "city": "Giza",
+    "bodies": [
+     "JCI"
+    ],
+    "since": 2011,
+    "accredited": true
+   },
+   {
+    "name": "As-Salam International Hospital",
+    "type": "Private clinic",
+    "city": "Cairo",
+    "bodies": [
+     "GAHAR"
+    ],
+    "since": 2013,
+    "accredited": true
+   },
+   {
+    "name": "Cairo University Hospitals",
+    "type": "University hospital",
+    "city": "Cairo",
+    "bodies": [
+     "GAHAR"
+    ],
+    "since": 2014,
+    "accredited": true
+   },
+   {
+    "name": "Alexandria Main University Hospital",
+    "type": "University hospital",
+    "city": "Alexandria",
+    "bodies": [
+     "GAHAR"
+    ],
+    "since": 2015,
+    "accredited": true
+   },
+   {
+    "name": "Cleopatra Hospital",
+    "type": "Private clinic",
+    "city": "Cairo",
+    "bodies": [
+     "GAHAR"
+    ],
+    "since": 2016,
+    "accredited": true
+   },
+   {
+    "name": "Ain Shams University Hospital",
+    "type": "University hospital",
+    "city": "Cairo",
+    "bodies": [
+     "GAHAR"
+    ],
+    "since": 2012,
+    "accredited": true
+   },
+   {
+    "name": "Andalusia Hospital",
+    "type": "Private clinic",
+    "city": "Alexandria",
+    "bodies": [
+     "GAHAR"
+    ],
+    "since": 2017,
+    "accredited": true
+   },
+   {
+    "name": "Wadi El Nil Hospital",
+    "type": "General hospital",
+    "city": "Cairo",
+    "bodies": [],
+    "since": null,
+    "accredited": false
+   },
+   {
+    "name": "Luxor International Hospital",
+    "type": "General hospital",
+    "city": "Luxor",
+    "bodies": [],
+    "since": null,
+    "accredited": false
+   }
+  ],
+  "total": "310"
+ },
+ "belgium": {
+  "name": "Belgium",
+  "region": "Europe",
+  "flag": "assets/images/countries/belgium-480.webp",
+  "lead": "171 of 195 institutions hold a verified accreditation from a recognised body.",
+  "canonical": "https://www.whatclinicsafe.com/care-services/belgium",
+  "description": "Browse 6,149 medical institutions in Belgium with verified accreditation records from national health authorities and international accreditation bodies.",
+  "clinics": [
+   {
+    "name": "AZ Oudenaarde",
+    "type": "General hospital",
+    "city": "Oudenaarde",
+    "bodies": [
+     "Qualicor Europe"
+    ],
+    "since": 2015,
+    "accredited": true
+   },
+   {
+    "name": "UZ Leuven",
+    "type": "University hospital",
+    "city": "Leuven",
+    "bodies": [
+     "Qualicor Europe"
+    ],
+    "since": 2009,
+    "accredited": true
+   },
+   {
+    "name": "UZ Gent",
+    "type": "University hospital",
+    "city": "Ghent",
+    "bodies": [
+     "Qualicor Europe"
+    ],
+    "since": 2010,
+    "accredited": true
+   },
+   {
+    "name": "Cliniques universitaires Saint-Luc",
+    "type": "University hospital",
+    "city": "Brussels",
+    "bodies": [
+     "Qualicor Europe"
+    ],
+    "since": 2011,
+    "accredited": true
+   },
+   {
+    "name": "AZ Sint-Jan Brugge",
+    "type": "General hospital",
+    "city": "Bruges",
+    "bodies": [
+     "Qualicor Europe"
+    ],
+    "since": 2013,
+    "accredited": true
+   },
+   {
+    "name": "CHU de Liège",
+    "type": "University hospital",
+    "city": "Liège",
+    "bodies": [
+     "NIAZ"
+    ],
+    "since": 2012,
+    "accredited": true
+   },
+   {
+    "name": "ZNA Middelheim",
+    "type": "General hospital",
+    "city": "Antwerp",
+    "bodies": [
+     "Qualicor Europe"
+    ],
+    "since": 2014,
+    "accredited": true
+   },
+   {
+    "name": "AZ Groeninge",
+    "type": "General hospital",
+    "city": "Kortrijk",
+    "bodies": [
+     "CoBRHA"
+    ],
+    "since": 2016,
+    "accredited": true
+   },
+   {
+    "name": "Clinique Saint-Pierre",
+    "type": "Private clinic",
+    "city": "Ottignies",
+    "bodies": [],
+    "since": null,
+    "accredited": false
+   }
+  ],
+  "total": "195"
+ }
+}

@@ -1,3 +1,10 @@
+const escapeHtml = (value) =>
+  String(value).replace(
+    /[&<>"']/g,
+    (char) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]
+  )
+
 class CatalogFilters {
   selectors = {
     root: '[data-js-catalog]',
@@ -97,9 +104,9 @@ class CatalogFilters {
 
     const pills = Object.entries(groups).flatMap(([name, values]) =>
       values.map(
-        (value) => `<span class="filter-pill">${value}
-          <button type="button" aria-label="Remove filter ${value}"
-                  data-js-remove-filter="${name}:${value}">
+        (value) => `<span class="filter-pill">${escapeHtml(value)}
+          <button type="button" aria-label="Remove filter ${escapeHtml(value)}"
+                  data-js-remove-filter="${escapeHtml(`${name}:${value}`)}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
           </button>
         </span>`
@@ -135,11 +142,12 @@ class CatalogFilters {
     const sorted = [...this.initialOrder]
 
     if (mode === 'name-asc' || mode === 'name-desc') {
-      sorted.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name))
+      sorted.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name, 'en'))
       if (mode === 'name-desc') sorted.reverse()
     }
 
     sorted.forEach((card) => this.resultsElement.append(card))
+    this.apply()
   }
 
   onDocumentClick = (event) => {

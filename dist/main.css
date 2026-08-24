@@ -3930,3 +3930,828 @@ a.chip:hover {
   background: none;
   min-width: 24px;
 }
+
+/* ── About: split-блок «медіа + сітка фіч» ───────────────────────── */
+.feature-split {
+  display: grid;
+  gap: var(--s-6);
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .feature-split {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: var(--s-10);
+    align-items: stretch;
+  }
+}
+
+.feature-split__media {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--c-n-100);
+  min-height: 260px;
+}
+.feature-split__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (min-width: 1024px) {
+  .feature-split__media {
+    height: 100%;
+    min-height: 420px;
+  }
+}
+
+.feature-split__body {
+  display: grid;
+  gap: var(--s-6);
+  align-content: start;
+}
+
+.feature-grid {
+  display: grid;
+  gap: var(--s-3);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 560px) {
+  .feature-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-rows: minmax(150px, auto);
+  }
+  /* bento-ритм для 5 карток: 3+3 / 2+2+2 */
+  .feature-grid > .feature { grid-column: span 3; }
+  .feature-grid > .feature:nth-child(3),
+  .feature-grid > .feature:nth-child(4),
+  .feature-grid > .feature:nth-child(5) { grid-column: span 2; }
+}
+
+.feature {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--s-4);
+  padding: var(--s-5);
+  border: 0;
+  border-radius: var(--r-xl);
+  background: var(--c-n-200);
+  overflow: hidden;
+  transition: none;
+}
+.feature__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  background: var(--surface-card);
+  color: var(--c-brand-600);
+}
+.feature__icon svg {
+  width: 20px;
+  height: 20px;
+}
+.feature h3 {
+  align-self: end;
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+.feature p {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: var(--lh-snug);
+}
+
+/* ── About: «історія» — заголовок зліва, рядки справа ────────────── */
+.story {
+  display: grid;
+  gap: var(--s-8);
+}
+@media (min-width: 1024px) {
+  .story {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+    gap: var(--s-12);
+    align-items: start;
+  }
+  .story__intro {
+    position: sticky;
+    top: calc(var(--header-h) + var(--s-8));
+  }
+}
+
+.story__title {
+  font-size: var(--fs-3xl);
+  letter-spacing: -0.025em;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--s-4);
+}
+.story__lead {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  line-height: var(--lh-normal);
+}
+
+.story__rows {
+  display: grid;
+  gap: var(--s-10);
+}
+
+.story-row {
+  display: grid;
+  gap: var(--s-5);
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .story-row {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: var(--s-8);
+  }
+}
+
+.story-row__media {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--c-n-100);
+  aspect-ratio: 4 / 3;
+}
+.story-row__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-row__body {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+}
+.story-row__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--c-brand-600);
+}
+.story-row__eyebrow::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: var(--r-pill);
+  background: currentColor;
+}
+.story-row__title {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  line-height: var(--lh-tight);
+}
+.story-row__body p {
+  color: var(--text-secondary);
+  line-height: var(--lh-normal);
+}
+.story-row__actions {
+  margin-top: var(--s-2);
+}
+
+/* ── About: перелік-твердження з галочкою / хрестиком ────────────── */
+.claims {
+  display: grid;
+  gap: var(--s-3);
+}
+.claim {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-3);
+  align-items: start;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: var(--lh-snug);
+}
+.claim svg {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  flex: none;
+}
+.claim--yes svg { color: var(--c-pass-fg); }
+.claim--no svg { color: var(--c-fail-fg); }
+
+
+/* ── About: bento-картки (перевизначає .promise на цій сторінці) ─── */
+.page-about .promises {
+  gap: var(--s-3);
+}
+.page-about .promise {
+  gap: var(--s-4);
+  padding: var(--s-5);
+  border: 0;
+  border-radius: var(--r-xl);
+  background: var(--c-n-200);
+  min-height: 170px;
+  grid-template-rows: auto 1fr;
+  transition: none;
+}
+.page-about .promise::before { content: none; }
+
+.page-about .promise__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  background: var(--surface-card);
+  color: var(--c-brand-600);
+  box-shadow: none;
+}
+.page-about .promise__icon svg { width: 20px; height: 20px; }
+.page-about .promise h3 {
+  align-self: end;
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  padding-right: 0;
+}
+.page-about .promise p {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+/* приховуємо декоративну нумерацію 01–04 */
+.page-about .promise::after { content: none; }
+
+/* картинки в story-рядках — те саме скруглення */
+.page-about .story-row__media,
+.page-about .feature-split__media {
+  border-radius: var(--r-xl);
+}
+
+
+/* ── About: кольорові акценти bento-карток ──────────────────────── */
+.feature--brand,
+.page-about .promise--brand {
+  background: var(--c-brand-600);
+  color: var(--text-invert);
+}
+.feature--brand h3,
+.page-about .promise--brand h3 { color: var(--text-invert); }
+.feature--brand p,
+.page-about .promise--brand p { color: rgba(255, 255, 255, 0.82); }
+.feature--brand .feature__icon,
+.page-about .promise--brand .promise__icon {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--text-invert);
+}
+
+.feature--dark,
+.page-about .promise--dark {
+  background: var(--c-n-800);
+  color: var(--text-invert);
+}
+.feature--dark h3,
+.page-about .promise--dark h3 { color: var(--text-invert); }
+.feature--dark p,
+.page-about .promise--dark p { color: rgba(255, 255, 255, 0.72); }
+.feature--dark .feature__icon,
+.page-about .promise--dark .promise__icon {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-invert);
+}
+
+.feature--accent,
+.page-about .promise--accent {
+  background: var(--c-pass-line);
+}
+.feature--accent h3,
+.page-about .promise--accent h3 { color: var(--c-pass-fg); }
+.feature--accent .feature__icon,
+.page-about .promise--accent .promise__icon {
+  background: var(--surface-card);
+  color: var(--c-pass-fg);
+}
+
+/* посилання всередині кольорових карток */
+.page-about .promise--brand a,
+.page-about .promise--dark a { color: inherit; }
+
+
+/* ── About: жодних hover-ефектів на картках ──────────────────────── */
+.page-about .promise:hover,
+.page-about .feature:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+.page-about .promise:hover::before { transform: scaleX(0); }
+.page-about .promise:hover::after { color: inherit; }
+
+/* ── Каталог країн: великі bento-картки ─────────────────────────── */
+.country-bento {
+  display: grid;
+  gap: var(--s-3);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .country-bento {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-rows: 200px;
+  }
+  /* ритм: 2 великі, потім 3 + 3 середні */
+  .country-bento > .country-tile { grid-column: span 2; }
+  .country-bento > .country-tile:nth-child(1),
+  .country-bento > .country-tile:nth-child(2) {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+}
+@media (min-width: 1024px) {
+  .country-bento { grid-auto-rows: 230px; }
+}
+
+.country-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 200px;
+  padding: var(--s-5);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  color: var(--text-invert);
+  text-decoration: none;
+  isolation: isolate;
+}
+.country-tile img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.country-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.88) 0%,
+    rgba(15, 23, 42, 0.45) 45%,
+    rgba(15, 23, 42, 0.12) 100%
+  );
+}
+.country-tile__region {
+  position: absolute;
+  top: var(--s-4);
+  left: var(--s-4);
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text-primary);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.country-tile__name {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text-invert);
+}
+.country-tile:nth-child(1) .country-tile__name,
+.country-tile:nth-child(2) .country-tile__name {
+  font-size: var(--fs-3xl);
+}
+.country-tile__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-2);
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.86);
+}
+.country-tile__count {
+  font-weight: var(--fw-semibold);
+  font-variant-numeric: tabular-nums;
+}
+.country-tile__go {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--text-invert);
+}
+.country-tile__go svg { width: 15px; height: 15px; }
+
+.country-tile:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* ── Центри акредитації: групи країн + logo-cloud сітка ─────────── */
+.centers-group + .centers-group { margin-top: var(--s-10); }
+
+/* назва країни по центру, лінії обабіч */
+.centers-group__title {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  margin-bottom: var(--s-5);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  text-align: center;
+}
+.centers-group__title::before,
+.centers-group__title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+.centers-group__title span {
+  flex: none;
+  padding: var(--s-1) var(--s-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-pill);
+  background: var(--surface-card);
+}
+
+/* щільна сітка без відступів, розділена лініями */
+.centers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: var(--surface-card);
+}
+@media (min-width: 640px) {
+  .centers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .centers-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* 1-2 картки: звичайна ширина колонки, вирівняні по центру */
+  .centers-group[data-count="1"] .centers-grid,
+  .centers-group[data-count="2"] .centers-grid {
+    width: fit-content;
+    margin-inline: auto;
+  }
+  .centers-group[data-count="1"] .centers-grid { grid-template-columns: 405px; }
+  .centers-group[data-count="2"] .centers-grid { grid-template-columns: repeat(2, 405px); }
+  .centers-group[data-count="2"] .centers-grid > .center-card:nth-child(2) { border-right: 0; }
+}
+
+.center-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-height: 345px;
+  padding: var(--s-6);
+  background: var(--surface-card);
+  border-right: 1px solid var(--border-subtle);
+}
+/* вертикальні лінії: остання колонка без правої межі */
+.centers-grid > .center-card:last-child { border-right: 0; }
+@media (min-width: 640px) {
+  .centers-grid > .center-card:nth-child(2n) { border-right: 0; }
+}
+@media (min-width: 1024px) {
+  .centers-grid > .center-card:nth-child(2n) { border-right: 1px solid var(--border-subtle); }
+  .centers-grid > .center-card:nth-child(3n),
+  .centers-grid > .center-card:last-child { border-right: 0; }
+}
+@media (max-width: 639.98px) {
+  .centers-grid > .center-card { border-right: 0; }
+  .centers-grid > .center-card + .center-card { border-top: 1px solid var(--border-subtle); }
+}
+
+/* хрестики "+" на перетинах ліній — як у logo-cloud */
+.center-card::after {
+  content: "";
+  position: absolute;
+  right: -6.5px;
+  bottom: -6.5px;
+  z-index: 2;
+  width: 13px;
+  height: 13px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--border-strong), var(--border-strong)) center / 100% 1px no-repeat,
+    linear-gradient(var(--border-strong), var(--border-strong)) center / 1px 100% no-repeat;
+}
+/* хрестик не потрібен на останній колонці й останньому ряду */
+@media (min-width: 1024px) {
+  .centers-grid > .center-card:nth-child(3n)::after,
+  .centers-grid > .center-card:nth-last-child(-n+3)::after { content: none; }
+}
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .centers-grid > .center-card:nth-child(2n)::after,
+  .centers-grid > .center-card:nth-last-child(-n+2)::after { content: none; }
+}
+@media (max-width: 639.98px) {
+  .center-card::after { content: none; }
+}
+
+/* кругле лого у рамці — як на бойовому сайті */
+.center-card__logo {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  margin-inline: auto;
+  padding: var(--s-2);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  overflow: hidden;
+}
+.center-card__logo img {
+  max-width: 100%;
+  max-height: 52px;
+  object-fit: contain;
+}
+.center-card__logo--empty {
+  border: 0;
+  background: var(--c-brand-50);
+  border-radius: 50%;
+  color: var(--c-brand-600);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.center-card__name {
+  margin-top: var(--s-2);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.center-card__desc {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: var(--lh-snug);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.center-card__foot {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--border-subtle);
+}
+/* темна кнопка, як на бойовому сайті */
+.center-card__foot .btn {
+  width: fit-content;
+  margin-inline: auto;
+  background: var(--c-n-900);
+  border-color: var(--c-n-900);
+  color: var(--text-invert);
+}
+.center-card__foot .btn:hover {
+  background: var(--c-n-800);
+  border-color: var(--c-n-800);
+  color: var(--text-invert);
+}
+
+/* ── About: вертикальні фото — портретні пропорції ──────────────── */
+.page-about .story-row__media {
+  aspect-ratio: 3 / 4;
+}
+@media (min-width: 768px) {
+  .page-about .story-row {
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    align-items: start;
+  }
+  .page-about .story-row__media {
+    position: sticky;
+    top: calc(var(--header-h) + var(--s-6));
+  }
+}
+@media (min-width: 1024px) {
+  .page-about .feature-split__media {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    align-self: start;
+    position: sticky;
+    top: calc(var(--header-h) + var(--s-6));
+  }
+}
+
+/* ── Центри: мобільне вирівнювання — лого і кнопка зліва ────────── */
+@media (max-width: 639.98px) {
+  .centers-grid .center-card .center-card__logo { margin-inline: 0; }
+  .centers-grid .center-card .center-card__foot { justify-content: flex-start; }
+  .centers-grid .center-card .center-card__foot .btn { margin-inline: 0; }
+}
+
+/* ── About: клікабельні картки-посилання ────────────────────────── */
+.page-about a.promise--link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.page-about a.promise--link p {
+  color: var(--c-brand-600);
+  font-weight: var(--fw-semibold);
+}
+.page-about a.promise--link:hover {
+  background: var(--c-n-300);
+}
+.page-about a.promise--link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+/* стрілка «зовнішнє посилання» */
+.page-about a.promise--link::after {
+  content: "↗";
+  position: absolute;
+  top: var(--s-5);
+  right: var(--s-5);
+  font-size: var(--fs-lg);
+  line-height: 1;
+  color: var(--c-brand-600);
+}
+
+/* ── Feature-bento: hero-картка + плитки + CTA ──────────────────── */
+.fbento {
+  display: grid;
+  gap: var(--s-3);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .fbento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .fbento {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+  }
+}
+
+.fbento__cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-6);
+  border-radius: var(--r-xl);
+  background: var(--c-n-100);
+  overflow: hidden;
+}
+.fbento__cell h3 {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.fbento__cell p {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: var(--lh-snug);
+}
+.fbento__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-md);
+  background: var(--surface-card);
+  color: var(--c-brand-600);
+}
+.fbento__icon svg { width: 20px; height: 20px; }
+
+/* hero-картка з фото */
+.fbento__hero {
+  grid-column: 1 / -1;
+  min-height: 320px;
+  padding: 0;
+  color: var(--text-invert);
+  isolation: isolate;
+}
+@media (min-width: 1024px) {
+  .fbento__hero {
+    grid-column: span 1;
+    grid-row: span 2;
+    min-height: 0;
+  }
+}
+.fbento__hero img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fbento__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top,
+    rgba(15, 23, 42, 0.9) 0%,
+    rgba(15, 23, 42, 0.5) 50%,
+    rgba(15, 23, 42, 0.15) 100%);
+}
+.fbento__hero-body {
+  margin-top: auto;
+  padding: var(--s-6);
+}
+.fbento__hero h3 {
+  font-size: var(--fs-2xl);
+  color: var(--text-invert);
+}
+.fbento__hero p { color: rgba(255, 255, 255, 0.85); }
+
+/* плитка-статистика */
+.fbento__stat {
+  justify-content: flex-end;
+}
+.fbento__stat b {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.fbento__stat span {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+/* акцентні варіанти — стримано */
+.fbento__cell--dark {
+  background: var(--c-n-800);
+  color: var(--text-invert);
+}
+.fbento__cell--dark h3 { color: var(--text-invert); }
+.fbento__cell--dark p { color: rgba(255, 255, 255, 0.75); }
+.fbento__cell--dark .fbento__icon {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-invert);
+}
+.fbento__cell--wide { grid-column: 1 / -1; }
+@media (min-width: 1024px) {
+  .fbento__cell--wide { grid-column: span 2; }
+}
+
+/* ── Feature-bento: заголовок зліва, сітка справа ───────────────── */
+.fbento-split {
+  display: grid;
+  gap: var(--s-8);
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .fbento-split {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+    gap: var(--s-10);
+  }
+  .fbento-split__intro {
+    position: sticky;
+    top: calc(var(--header-h) + var(--s-8));
+  }
+  /* у вужчій колонці — 2 стовпці; hero зліва на 2 ряди,
+     дві статистики справа від нього, широка плитка знизу */
+  .fbento-split .fbento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(190px, auto);
+  }
+  .fbento-split .fbento__hero {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  /* «What an inspection actually covers» — праворуч від фото */
+  .fbento-split .fbento__cell--wide {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  /* статистики — під ними, у два стовпці */
+  .fbento-split .fbento__stat { grid-row: 3; }
+  .fbento-split .fbento__stat:nth-of-type(1) { grid-column: 1; }
+  .fbento-split .fbento__stat:nth-of-type(2) { grid-column: 2; }
+}
+.fbento-split__intro .section__title { margin-bottom: var(--s-3); }

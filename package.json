@@ -1,19 +1,10 @@
 {
   "name": "whatclinicsafe-institution-page",
   "version": "1.0.0",
-  "description": "Institution profile page — semantic HTML, SCSS (BEM), vanilla JS modules",
+  "description": "Static pages — semantic HTML, plain CSS (BEM), vanilla JS modules",
   "private": true,
   "type": "module",
   "scripts": {
-    "html": "python3 .build/gen.py",
-    "css": "sass src/styles/main.scss dist/main.css --style=expanded --no-source-map",
-    "css:min": "sass src/styles/main.scss dist/main.css --style=compressed --no-source-map",
-    "build": "npm run html && npm run css:min",
-    "watch": "sass --watch src/styles/main.scss dist/main.css",
-    "serve": "python3 -m http.server 4173",
-    "lint:styles": "stylelint \"src/styles/**/*.scss\""
-  },
-  "devDependencies": {
-    "sass": "^1.103.1"
+    "serve": "python3 -m http.server 4173"
   }
 }

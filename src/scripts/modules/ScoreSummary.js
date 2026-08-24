@@ -3,7 +3,6 @@ import { INDICATOR_STATES, getIndicatorState } from '../helpers/indicatorState.j
 class ScoreSummary {
   selectors = {
     score: '[data-js-score]',
-    bar: '[data-js-score-bar]',
     summary: '[data-js-summary]',
     meterTrack: '[data-js-summary-meter]',
   }
@@ -30,17 +29,7 @@ class ScoreSummary {
         return
       }
 
-      const ratio = value / target
-      const state = getIndicatorState(ratio)
-
-      scoreElement.classList.add(`score--${state}`)
-      scoreElement.closest('tr')?.classList.add(`indicators__row--${state}`)
-
-      const barElement = scoreElement.querySelector(this.selectors.bar)
-
-      if (barElement) {
-        barElement.dataset.jsScoreBar = String(Math.round(ratio * 100))
-      }
+      const state = getIndicatorState(value / target)
 
       counts[state] += 1
       counts.total += 1

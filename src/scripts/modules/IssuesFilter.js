@@ -1,4 +1,5 @@
 import announce from '../helpers/announce.js'
+import togglePanel from '../helpers/togglePanel.js'
 
 class IssuesFilter {
   selectors = {
@@ -12,7 +13,6 @@ class IssuesFilter {
 
   stateClasses = {
     isFiltered: 'is-filtered',
-    isOpen: 'is-open',
   }
 
   constructor() {
@@ -67,11 +67,11 @@ class IssuesFilter {
         return
       }
 
-      groupElement
-        .querySelector(this.selectors.groupToggle)
-        ?.setAttribute('aria-expanded', 'true')
-      groupPanelElement.classList.add(this.stateClasses.isOpen)
-      groupPanelElement.removeAttribute('inert')
+      togglePanel(
+        groupElement.querySelector(this.selectors.groupToggle),
+        groupPanelElement,
+        true
+      )
     })
   }
 }

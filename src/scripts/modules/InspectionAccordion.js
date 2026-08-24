@@ -1,3 +1,5 @@
+import togglePanel from '../helpers/togglePanel.js'
+
 class InspectionAccordion {
   selectors = {
     root: '[data-js-inspection]',
@@ -70,22 +72,16 @@ class InspectionAccordion {
       const hasIssues = Boolean(panelElement.querySelector(this.selectors.issueRow))
 
       groupElement.dataset.jsGroupDefaultOpen = String(hasIssues)
-      this.togglePanel(toggleElement, panelElement, false)
+      togglePanel(toggleElement, panelElement, false)
 
       toggleElement.addEventListener('click', () => {
-        this.togglePanel(
+        togglePanel(
           toggleElement,
           panelElement,
           toggleElement.getAttribute('aria-expanded') !== 'true'
         )
       })
     })
-  }
-
-  togglePanel(toggleElement, panelElement, isOpen) {
-    toggleElement.setAttribute('aria-expanded', String(isOpen))
-    panelElement.classList.toggle(this.stateClasses.isOpen, isOpen)
-    panelElement.toggleAttribute('inert', !isOpen)
   }
 
   toggleReport(rootElement, isOpen, { shouldScroll = false } = {}) {
@@ -97,7 +93,7 @@ class InspectionAccordion {
     }
 
     rootElement.classList.toggle(this.stateClasses.isOpen, isOpen)
-    this.togglePanel(toggleElement, panelElement, isOpen)
+    togglePanel(toggleElement, panelElement, isOpen)
 
     if (!isOpen) {
       return
@@ -123,7 +119,7 @@ class InspectionAccordion {
         return
       }
 
-      this.togglePanel(
+      togglePanel(
         groupElement.querySelector(this.selectors.groupToggle),
         groupElement.querySelector(this.selectors.groupPanel),
         true
